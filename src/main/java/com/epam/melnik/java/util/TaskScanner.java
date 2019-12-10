@@ -1,0 +1,53 @@
+package com.epam.melnik.java.util;
+
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+public class TaskScanner {
+
+    public static final String WARNING_MESSAGE_FOR_WRONG_NAME = "This is not name. Try again - ";
+    public static final String WARNING_MESSAGE_FOR_INTEGER = "Enter Integer - ";
+    public static final String WARNING_MESSAGE_FOR_WRONG_NUMBER = "This is not number. Try again - ";
+
+    public static final String NAME_PATTERN = "[a-zA-Z]{1,}";
+
+    public static final Scanner scanner = new Scanner(System.in);
+
+    public static String getName() {
+
+        String userEnter = scanner.next();
+
+        while (!Pattern.matches(NAME_PATTERN, userEnter)) {
+            System.out.print(WARNING_MESSAGE_FOR_WRONG_NAME);
+            userEnter = scanner.next();
+        }
+
+        return userEnter;
+    }
+
+    public static int getInteger() {
+
+        boolean isInteger = scanner.hasNextInt();
+        while (!isInteger) {
+            System.out.print(WARNING_MESSAGE_FOR_INTEGER);
+            String next = scanner.next();
+            isInteger = scanner.hasNextInt();
+        }
+        int userEnter = scanner.nextInt();
+
+        return userEnter;
+    }
+
+    public static double getNum() {
+
+        boolean isNum = scanner.hasNextInt() || scanner.hasNextDouble();
+        while (!isNum) {
+            System.out.println(WARNING_MESSAGE_FOR_WRONG_NUMBER);
+            String next = scanner.next();
+            isNum = scanner.hasNextInt() || scanner.hasNextDouble();
+        }
+        double number = scanner.nextDouble();
+
+        return number;
+    }
+}
