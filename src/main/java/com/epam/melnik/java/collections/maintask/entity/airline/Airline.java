@@ -13,9 +13,22 @@ public class Airline {
     public static void main(String[] args) {
         Airline airline = new Airline();
         List<AirCraft> airCrafts = airline.getAirCrafts();
-        System.out.println(airline.getOffice().getTotalAirParkCarryingCapacity(airCrafts));
-        System.out.println(airline.getOffice().getTotalAirParkPassengerCapacity(airCrafts));
+//        System.out.println(airline.getOffice().getTotalAirParkCarryingCapacity(airCrafts));
+//        System.out.println(airline.getOffice().getTotalAirParkPassengerCapacity(airCrafts));
 
+        for (int i = 0; i < airCrafts.size(); i++) {
+            System.out.println(airCrafts.get(i).getFuelConsumption());
+        }
+
+        System.out.println("____________________________________________________________________");
+        List<AirCraft> rangeFuelConsume =
+                airline.getOffice()
+                        .getAirCraftFuelConsumptionRange(2_500, 1_000, airCrafts);
+
+        for (int i = 0; i < rangeFuelConsume.size(); i++) {
+            System.out.println(rangeFuelConsume.get(i).getFuelConsumption());
+        }
+        System.out.println();
 //        List<AirCraft> ad = new ArrayList<>(2);
 //        AirCraft first = new CargoAirPlane();
 //        AirCraft second = new PassengerAirPlane();
