@@ -1,0 +1,6 @@
+amountPeopleAircraftCrew=4, 5, 6, 6, 4
+carryingCapacity=10000, 12000, 30000, 28000, 45000
+passengerCapacity=10, 12, 10, 20, 25
+flightRange= 1000, 2500, 1200, 2000, 1980
+fuelConsumption= 650, 420, 350, 1200, 780
+amountCargoHatch= 1, 5, 4, 6, 8

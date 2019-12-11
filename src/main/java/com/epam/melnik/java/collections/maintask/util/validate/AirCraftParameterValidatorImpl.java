@@ -1,6 +1,6 @@
 package com.epam.melnik.java.collections.maintask.util.validate;
 
-import com.epam.melnik.java.collections.maintask.entity.AirCraftType;
+import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraftType;
 
 public class AirCraftParameterValidatorImpl implements AirCraftParameterValidator {
 
@@ -17,7 +17,7 @@ public class AirCraftParameterValidatorImpl implements AirCraftParameterValidato
     public static final int MIN_PASSENGER_CAPACITY_FOR_CARGO_AIR_PLANE = 10;
     public static final int MAX_PASSENGER_CAPACITY_FOR_CARGO_AIR_PLANE = 25;
     public static final int MIN_PASSENGER_CAPACITY_FOR_PASSENGER_AIR_PLANE = 50;
-    public static final int MAX_PASSENGER_CAPACITY_FOR_PASSENGER_AIR_PLANE = 500;
+    public static final int MAX_PASSENGER_CAPACITY_FOR_PASSENGER_AIR_PLANE = 300;
 
     private AirCraftType airCraftType;
 

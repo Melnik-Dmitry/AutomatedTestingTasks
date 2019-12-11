@@ -1,4 +1,4 @@
-package com.epam.melnik.java.collections.maintask.entity;
+package com.epam.melnik.java.collections.maintask.entity.aircraft;
 
 public class CargoAirPlane extends AirCraft {
 
