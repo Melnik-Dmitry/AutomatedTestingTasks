@@ -1,12 +1,16 @@
-package Planes;
+package com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane;
 
 import java.util.Objects;
 
 abstract public class Plane {
-    String model;
+
+    private String model;
     private int maxSpeed;
     private int maxFlightDistance;
     private int maxLoadCapacity;
+
+    public Plane() {
+    }
 
     public Plane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity) {
         this.model = model;
@@ -19,17 +23,32 @@ abstract public class Plane {
         return model;
     }
 
-    public int getMS() {
+    public int getMaxSpeed() {
         return maxSpeed;
     }
 
-    public int Get_Max_Flight_Distance() {
+    public int getMaxFlightDistance() {
         return maxFlightDistance;
     }
 
-    public int getMinLoadCapacity() {
-        int result = this.maxLoadCapacity;
-        return result;
+    public int getMaxLoadCapacity() {
+        return maxLoadCapacity;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Plane)) return false;
+        Plane plane = (Plane) o;
+        return getMaxSpeed() == plane.getMaxSpeed() &&
+                getMaxFlightDistance() == plane.getMaxFlightDistance() &&
+                getMaxLoadCapacity() == plane.getMaxLoadCapacity() &&
+                getModel().equals(plane.getModel());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
     }
 
     @Override
@@ -40,21 +59,5 @@ abstract public class Plane {
                 ", maxFlightDistance=" + maxFlightDistance +
                 ", maxLoadCapacity=" + maxLoadCapacity +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Plane)) return false;
-        Plane plane = (Plane) o;
-        return maxSpeed == plane.maxSpeed &&
-                maxFlightDistance == plane.maxFlightDistance &&
-                maxLoadCapacity == plane.maxLoadCapacity &&
-                Objects.equals(model, plane.model);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(model, maxSpeed, maxFlightDistance, maxLoadCapacity);
     }
 }

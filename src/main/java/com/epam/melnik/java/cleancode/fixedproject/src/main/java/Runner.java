@@ -1,4 +1,4 @@
-import models.MilitaryType;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.modelEnums.MilitaryType;
 import Planes.MilitaryPlane;
 import Planes.PassengerPlane;
 import Planes.Plane;

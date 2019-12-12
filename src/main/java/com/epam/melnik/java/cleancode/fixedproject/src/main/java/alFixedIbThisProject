@@ -1,0 +1,64 @@
+1. ; после  всех ссылок в Enum даннного проекта
+2. Переименованы пакеты Enum в соответствии с расположением в даннном проекте
+3. переименован пакет models -> model
+4. добавлен пакет model.modelEnums
+5. Enum перемещены в пакет model.modelEnums
+6. добавлен пакет model.entity
+7. переименован пакет Planes -> plane, перемещен в пакет model.entity
+
+8. class Plane
+    изменено имя пакетв  в соотв с проектом
+    поле String model присвоен private
+    добавлен конструктор без параметров
+    изменен имя метода int getMS() -> int getMaxSpeed()
+    изменен имя метода int Get_Max_Flight_Distance() -> int getMaxFlightDistance()
+    изменен имя метода int getMinLoadCapacity() ->i getMaxFlightDistance()
+    изменен имя метода int getMinLoadCapacity() -> int getMaxLoadCapacity()
+    изменен метод int getMaxLoadCapacity() аналогично остальным getters
+    изменен метод public boolean equals(Object o)
+
+9. class MyPlane
+    изменено имя пакетв  в соотв с проектом
+    отсутвует расширение класса Plane, методы equals, hashCode, toString, конструктор без параметров
+
+10. class MilitaryPlane
+    изменено имя пакета  и import  в соотв с проектом
+    добавлен конструктор без параметров
+    изменена строчка в методе boolean equals(Object o)\
+    добавлен setter для поля type
+
+11. class experimentalPlane
+    изменено имя класса ExperimentalPlane
+    изменено имя пакета  и import  в соотв с проектом
+    добавлен конструктор без параметров
+    изменено имя поля type -> experimentalType, геттер и сеттр для этого поля
+    добавлен getter setter для поля type
+    изменен метод boolean equals(Object o) и метод int hashCode() и String toString()
+
+12. изменено имя Enum ExperimentalTypes -> ExperimentalType
+
+13. class Airport
+    добавлен пакет package com.epam.melnik.java.cleancode.fixedproject.src.main.java;
+    изменен import в соотв со структурой проекта
+    строки информации перемещены на именем пакета
+    изменен имя метода List<PassengerPlane> getPasPl() -> List<PassengerPlane> getPassengerPlane(), рефакторинг этого метода
+    рефакторинг List<MilitaryPlane> getMilitaryPlanes()
+    удалены ненужные комментарии
+    добавлен конструктор без параметров
+    перемещен конструктор с парметрами вверх
+    добавлен setter для поля planes (перемещены getter and setter вверх)
+    private method перемещен вниз
+    добавлены методы boolean equals(Object o), int hashCode()
+    изменен имя метода Airport sortByMaxDistance() -> Airport sortByMaxFlightDistance(),
+        изменен Comparator в связи спереименованием методов getMaxFlightDistance() в классе Plane
+    метод sortByMaxSpeed() изменен Comparator в связи спереименованием методов getMaxFlightDistance() в классе Plane
+    метод sortByMaxLoadCapacity() изменен Comparator в связи спереименованием методов getMaxFlightDistance() в классе Plane
+
+
+14. class PassengerPlane
+    изменено имя пакета  и import  в соотв с проектом
+    удалены ненужные комментрарии
+    добавлен конструктор без параметров
+    добавлен setter Для поля passengersCapacity
+
+
