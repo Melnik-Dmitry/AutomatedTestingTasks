@@ -1,9 +1,23 @@
+/*
+ * version: 1.1.1
+ * made by Dmitry Melnik
+ * 20-Dec-2019
+ */
+
 package com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane;
 
-import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.modelEnums.MilitaryType;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.planetype.MilitaryType;
 
 import java.util.Objects;
 
+/**
+ * The class extends the class com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane.Plane;
+ * Represents a description of a military aircraft.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ * @see Plane
+ */
 public class MilitaryPlane extends Plane {
 
     private MilitaryType type;

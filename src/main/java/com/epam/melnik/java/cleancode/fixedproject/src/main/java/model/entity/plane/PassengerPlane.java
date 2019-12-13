@@ -1,7 +1,21 @@
+/*
+ * version: 1.1.1
+ * made by Dmitry Melnik
+ * 20-Dec-2019
+ */
+
 package com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane;
 
 import java.util.Objects;
 
+/**
+ * The class extends the class com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane.Plane;
+ * Represents a description of a passenger aircraft.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ * @see Plane
+ */
 public class PassengerPlane extends Plane {
 
     private int passengersCapacity;

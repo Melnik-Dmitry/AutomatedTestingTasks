@@ -1,12 +1,23 @@
-import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.modelEnums.MilitaryType;
-import Planes.MilitaryPlane;
-import Planes.PassengerPlane;
-import Planes.Plane;
+/*
+ * version: 1.1
+ * made by Vitali Shulha
+ * 4-Jan-2019
+ */
+
+package com.epam.melnik.java.cleancode.fixedproject.src.main.java;
+
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane.MilitaryPlane;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane.PassengerPlane;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane.Plane;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.planetype.MilitaryType;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.util.AirportPlaneSorter;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.util.PlaneSearcher;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Runner {
+
     static List<Plane> planes = Arrays.asList(
             new PassengerPlane("Boeing-737", 900, 12000, 60500, 164),
             new PassengerPlane("Boeing-737-800", 940, 12300, 63870, 192),
@@ -24,17 +35,32 @@ public class Runner {
             new MilitaryPlane("C-130 Hercules", 650, 5000, 110000, MilitaryType.TRANSPORT)
     );
 
-    public static void main(String[] args) {
-        Airport airport = new Airport(planes);
-        Airport militaryAirport = new Airport(airport.getMilitaryPlanes());
-        Airport passengerAirport = new Airport(airport.getPasPl());
-        System.out.println("Military airport sorted by max distance: " + militaryAirport
-                .sortByMaxDistance()
-                .toString());
-        System.out.println("Passenger airport sorted by max speed: " + passengerAirport
-                .sortByMaxSpeed()
-                .toString());
+    public static final String PRINT_FOR_MILITARY_AIRPORT_SORTED_BY_MAX_DISTANCE =
+            "Military airport sorted by max distance: ";
+    public static final String PRINT_FOR_PASSENGER_AIRPORT_SORTED_BY_MAX_SPEED =
+            "Passenger airport sorted by max speed: ";
+    public static final String PRINT_PLANE_WITH_MAX_PASSENGER_CAPACITY =
+            "Plane with max passenger capacity: ";
 
-        System.out.println("Plane with max passenger capacity: " + passengerAirport.getPassengerPlaneWithMaxPassengersCapacity());
+    public static void main(String[] args) {
+
+        Airport airport = new Airport(planes);
+        PlaneSearcher<Plane> planeSearcher = new PlaneSearcher();
+        AirportPlaneSorter airportPlaneSorter = new AirportPlaneSorter();
+
+        Airport militaryAirport =
+                new Airport(planeSearcher.getMilitaryPlanes((List<Plane>) airport.getPlanes()));
+        Airport passengerAirport =
+                new Airport(planeSearcher.getPassengerPlane((List<Plane>) airport.getPlanes()));
+
+        System.out.println(PRINT_FOR_MILITARY_AIRPORT_SORTED_BY_MAX_DISTANCE
+                + airportPlaneSorter.sortByMaxFlightDistance(militaryAirport).toString());
+
+        System.out.println(PRINT_FOR_PASSENGER_AIRPORT_SORTED_BY_MAX_SPEED
+                + airportPlaneSorter.sortByMaxSpeed(passengerAirport).toString());
+
+        System.out.println(PRINT_PLANE_WITH_MAX_PASSENGER_CAPACITY
+                + planeSearcher.getPassengerPlaneWithMaxPassengersCapacity
+                ((List<Plane>) passengerAirport.getPlanes()));
     }
 }

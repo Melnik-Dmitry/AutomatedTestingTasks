@@ -2,7 +2,7 @@
 2. Переименованы пакеты Enum в соответствии с расположением в даннном проекте
 3. переименован пакет models -> model
 4. добавлен пакет model.modelEnums
-5. Enum перемещены в пакет model.modelEnums
+5. Enum перемещены в пакет model.planetype
 6. добавлен пакет model.entity
 7. переименован пакет Planes -> plane, перемещен в пакет model.entity
 
@@ -53,6 +53,13 @@
         изменен Comparator в связи спереименованием методов getMaxFlightDistance() в классе Plane
     метод sortByMaxSpeed() изменен Comparator в связи спереименованием методов getMaxFlightDistance() в классе Plane
     метод sortByMaxLoadCapacity() изменен Comparator в связи спереименованием методов getMaxFlightDistance() в классе Plane
+    методы List<PassengerPlane> getPassengerPlane(), List<MilitaryPlane> getMilitaryPlanes(),
+        PassengerPlane getPassengerPlaneWithMaxPassengersCapacity(), List<MilitaryPlane> getTransportMilitaryPlanes(),
+        List<MilitaryPlane> getBomberMilitaryPlanes(), List<ExperimentalPlane> getExperimentalPlanes() выделены в
+        отдельный класс PlaneSearcher в новом пакете util, методы get... выделены в блок (get 1 Plane размещен ниже.
+    методы Airport sortByMaxFlightDistance(Airport airport), Airport sortByMaxSpeed(), sortByMaxLoadCapacity()
+        выделены в отдельный класс AirportPlaneSorter,
+        имена ссылок о1, о2 при реализации Comparator переименованы firstPlane, secondPlane
 
 
 14. class PassengerPlane
@@ -61,4 +68,18 @@
     добавлен конструктор без параметров
     добавлен setter Для поля passengersCapacity
 
+15. class  Runner
+        изменено имя пакета  и import  в соотв с проектом
+        изменен метод main
+        сообщения, которые выводятся на консоль сделаны public static final String
 
+16. добавлен коментарий
+
+    /*
+     * version: 1.1.1
+     * made by Dmitry Melnik
+     * 20-Dec-2019
+     */
+    в начале каждого класса
+
+17. добавлены doc комментарии к методам в классе AirportPlaneSorter и

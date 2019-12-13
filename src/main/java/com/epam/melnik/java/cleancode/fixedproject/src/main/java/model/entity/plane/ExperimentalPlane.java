@@ -1,10 +1,24 @@
+/*
+ * version: 1.1.1
+ * made by Dmitry Melnik
+ * 20-Dec-2019
+ */
+
 package com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane;
 
-import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.modelEnums.ClassificationLevel;
-import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.modelEnums.ExperimentalType;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.planetype.ClassificationLevel;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.planetype.ExperimentalType;
 
 import java.util.Objects;
 
+/**
+ * The class extends the class com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane.Plane;
+ * Represents a description of a experimental aircraft.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ * @see Plane
+ */
 public class ExperimentalPlane extends Plane {
 
     private ExperimentalType experimentalType;

@@ -1,6 +1,6 @@
 import models.ClassificationLevel;
 import models.ExperimentalTypes;
-import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.modelEnums.MilitaryType;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.planetype.MilitaryType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import Planes.MilitaryPlane;

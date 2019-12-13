@@ -1,7 +1,19 @@
+/*
+ * version: 1.1.1
+ * made by Dmitry Melnik
+ * 20-Dec-2019
+ */
+
 package com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane;
 
 import java.util.Objects;
 
+/**
+ * An abstract class describing an aircraft is intended to be extended.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 abstract public class Plane {
 
     private String model;
