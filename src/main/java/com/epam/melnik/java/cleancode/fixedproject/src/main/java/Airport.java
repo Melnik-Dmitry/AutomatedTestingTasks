@@ -1,7 +1,7 @@
 /*
- * version: 1.1
- * made by Vitali Shulha
- * 4-Jan-2019
+ * version: 1.1.1
+ * made by Dmitry Melnik
+ * 20-Dec-2019
  */
 
 package com.epam.melnik.java.cleancode.fixedproject.src.main.java;
@@ -10,6 +10,13 @@ import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.pl
 
 import java.util.*;
 
+/**
+ * The class representing an entity Airport.
+ * Designed to store entities Plane.
+ *
+ * @author Dmitry Melnik
+ * @see Plane
+ */
 public class Airport {
 
     private List<? extends Plane> planes;

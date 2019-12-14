@@ -30,7 +30,7 @@ public class PlaneSearcher<T extends Plane> {
      *
      * @return List<PassengerPlane>
      */
-    public List<PassengerPlane> getPassengerPlane(List<T> planes) {
+    public List<PassengerPlane> getPassengerPlanes(List<T> planes) {
 
         List<PassengerPlane> passengerPlanes = new ArrayList<>();
         for (Plane plane : planes) {
@@ -119,7 +119,7 @@ public class PlaneSearcher<T extends Plane> {
      */
     public PassengerPlane getPassengerPlaneWithMaxPassengersCapacity(List<T> planes) {
 
-        List<PassengerPlane> passengerPlanes = getPassengerPlane(planes);
+        List<PassengerPlane> passengerPlanes = getPassengerPlanes(planes);
 
         PassengerPlane planeWithMaxCapacity = passengerPlanes.get(0);
         for (int i = 0; i < passengerPlanes.size(); i++) {

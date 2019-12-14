@@ -51,7 +51,7 @@ public class Runner {
         Airport militaryAirport =
                 new Airport(planeSearcher.getMilitaryPlanes((List<Plane>) airport.getPlanes()));
         Airport passengerAirport =
-                new Airport(planeSearcher.getPassengerPlane((List<Plane>) airport.getPlanes()));
+                new Airport(planeSearcher.getPassengerPlanes((List<Plane>) airport.getPlanes()));
 
         System.out.println(PRINT_FOR_MILITARY_AIRPORT_SORTED_BY_MAX_DISTANCE
                 + airportPlaneSorter.sortByMaxFlightDistance(militaryAirport).toString());

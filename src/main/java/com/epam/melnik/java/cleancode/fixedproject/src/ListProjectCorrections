@@ -1,0 +1,92 @@
+1. Changed package names, import in all classes according to project.
+2. The package "models" is renamed as a package "model".
+3. Added package "model.planetype".
+4. The package "Planes" is renamed as a package "plane"
+        and moved to the package "model.entity".
+5. changed Enum name "ExperimentalTypes" to "ExperimentalType".
+6. in all classes added comment:
+        /*
+         * version: 1.1.1
+         * made by Dmitry Melnik
+         * 20-Dec-2019
+         */
+7. added docComments to classes and methods.
+
+8. class Plane:
+    - the field "String model" is assigned an access modifier "private".
+    - added constructor without parameters.
+    - changed method names:
+                int getMS() -> int getMaxSpeed().
+                int Get_Max_Flight_Distance() -> int getMaxFlightDistance().
+                int getMinLoadCapacity() ->i getMaxFlightDistance().
+                int getMinLoadCapacity() -> int getMaxLoadCapacity().
+    - changed method "int getMaxLoadCapacity()".
+    - changed method "boolean equals(Object o)".
+
+9. class MilitaryPlane:
+    - added constructor without parameters.
+    - changed method "boolean equals(Object o)".
+    - added setter to the field "type".
+
+10. class experimentalPlane:
+    - changed class name to "ExperimentalPlane".
+    - added constructor without parameters.
+    - changed class field "type" to "experimentalType", added getter and setter for this field.
+    - changed methods "boolean equals(Object o)", "int hashCode()", "String toString()".
+
+11. class PassengerPlane:
+    - added constructor without parameters.
+    - added setter for field "passengersCapacity".
+    - removed unnecessary comments.
+
+12. class MyPlane:
+    - changed class name to "LightAircraft".
+    - added new Enum "LightAircraftType".
+    - implemented inheritance from the Plane.class.
+    - added constructor without parameters.
+    - added setter and getter for field "lightAircraftType".
+    - added methods "boolean equals(Object o)", "int hashCode()", "String toString()".
+
+13. class Airport:
+    - removed unnecessary comments.
+    - added constructor without parameters.
+    - moved constructor with parameters.
+    - added setter for field "planes" (moved getter and setter for this field).
+    - private method moved down.
+    - added methods boolean equals(Object o), int hashCode().
+    - changed methods names:
+            List<PassengerPlane> getPasPl() -> List<PassengerPlane> getPassengerPlanes().
+            Airport sortByMaxDistance() -> Airport sortByMaxFlightDistance().
+    - refactoring methods:
+            List<PassengerPlane> getPassengerPlanes().
+            List<MilitaryPlane> getMilitaryPlanes().
+    - methods List<PassengerPlane> getPassengerPlanes(),
+              List<MilitaryPlane> getMilitaryPlanes(),
+              PassengerPlane getPassengerPlaneWithMaxPassengersCapacity(),
+              List<MilitaryPlane> getTransportMilitaryPlanes(),
+              List<MilitaryPlane> getBomberMilitaryPlanes(),
+              List<ExperimentalPlane> getExperimentalPlanes()
+              added to new class "PlaneSearcher" in package "util".
+    - methods Airport sortByMaxFlightDistance(Airport airport),
+              Airport sortByMaxSpeed(),
+              sortByMaxLoadCapacity()
+              added to new class "AirportPlaneSorter" in package "util".
+    - changed implementation interface Comparator in methods in class "AirportPlaneSorter".
+    - changed name links "o1", "o2" to "firstPlane", "secondPlane" at implementation interface Comparator 
+            in methods in class "AirportPlaneSorter".
+            
+14. class Runner:
+    - changed method "main".
+    - hardcore message made as public static final String.
+
+
+
+
+
+
+
+
+
+
+
+

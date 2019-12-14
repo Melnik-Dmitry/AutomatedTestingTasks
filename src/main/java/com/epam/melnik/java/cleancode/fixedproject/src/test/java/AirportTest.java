@@ -1,11 +1,15 @@
-import models.ClassificationLevel;
-import models.ExperimentalTypes;
+package com.epam.melnik.java.cleancode.fixedproject.src.test.java;
+
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.Airport;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane.ExperimentalPlane;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane.MilitaryPlane;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane.PassengerPlane;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane.Plane;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.planetype.ClassificationLevel;
+import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.planetype.ExperimentalType;
 import com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.planetype.MilitaryType;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import Planes.MilitaryPlane;
-import Planes.PassengerPlane;
-import Planes.Plane;
 
 import java.util.Arrays;
 import java.util.List;
@@ -26,8 +30,8 @@ public class AirportTest {
             new MilitaryPlane("F-15", 1500, 12000, 10000, MilitaryType.FIGHTER),
             new MilitaryPlane("F-22", 1550, 13000, 11000, MilitaryType.FIGHTER),
             new MilitaryPlane("C-130 Hercules", 650, 5000, 110000, MilitaryType.TRANSPORT),
-            new Planes.ExperimentalPlane("Bell X-14", 277, 482, 500, ExperimentalTypes.HIGH_ALTITUDE, ClassificationLevel.SECRET),
-            new Planes.ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, ExperimentalTypes.VTOL, ClassificationLevel.TOP_SECRET)
+            new ExperimentalPlane("Bell X-14", 277, 482, 500, ExperimentalType.HIGH_ALTITUDE, ClassificationLevel.SECRET),
+            new ExperimentalPlane("Ryan X-13 Vertijet", 560, 307, 500, ExperimentalType.VTOL, ClassificationLevel.TOP_SECRET)
     );
 
     private static PassengerPlane planeWithMaxPassengerCapacity = new PassengerPlane("Boeing-747", 980, 16100, 70500, 242);
@@ -80,8 +84,7 @@ public class AirportTest {
         for (MilitaryPlane militaryPlane : bomberMilitaryPlanes) {
             if ((militaryPlane.getType() == MilitaryType.BOMBER)) {
                 flag = true;
-            }
-            else {
+            } else {
                 Assert.fail("Test failed!");
             }
         }
@@ -89,12 +92,12 @@ public class AirportTest {
     }
 
     @Test
-    public void testExperimentalPlanesHasClassificationLevelHigherThanUnclassified(){
+    public void testExperimentalPlanesHasClassificationLevelHigherThanUnclassified() {
         Airport airport = new Airport(planes);
         List<Planes.ExperimentalPlane> ExperimentalPlanes = airport.getExperimentalPlanes();
         boolean hasUnclassifiedPlanes = false;
-        for(Planes.ExperimentalPlane experimentalPlane : ExperimentalPlanes){
-            if(experimentalPlane.getClassificationLevel() == ClassificationLevel.UNCLASSIFIED){
+        for (Planes.ExperimentalPlane experimentalPlane : ExperimentalPlanes) {
+            if (experimentalPlane.getClassificationLevel() == ClassificationLevel.UNCLASSIFIED) {
                 hasUnclassifiedPlanes = true;
                 break;
             }
