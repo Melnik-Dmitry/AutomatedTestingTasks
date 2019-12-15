@@ -1,7 +1,7 @@
 /*
- * version: 1.1
- * made by Vitali Shulha
- * 4-Jan-2019
+ * version: 1.1.1
+ * made by Dmitry Melnik
+ * 20-Dec-2019
  */
 
 package com.epam.melnik.java.cleancode.fixedproject.src.main.java.model.entity.plane;
