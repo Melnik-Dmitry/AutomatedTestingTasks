@@ -79,14 +79,11 @@
     - changed method "main".
     - hardcore message made as public static final String.
 
-
-
-
-
-
-
-
-
-
-
-
+15. class AirportTest:
+    - added new fields private static Airport airport;
+                       private static PassengerPlane planeWithMaxPassengerCapacity;
+                       private static PlaneSearcher<Plane> planeSearcher;
+                       private static AirportPlaneSorter airportPlaneSorter;
+    - added method @BeforeMethod public void setUp().
+    - refactor all test methods.
+    - changed name method "test3" to "testSortByMaxLoadCapacity".
