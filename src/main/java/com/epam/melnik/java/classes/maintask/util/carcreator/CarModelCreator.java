@@ -1,3 +1,9 @@
+/*
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 25-Dec-2019
+ */
+
 package com.epam.melnik.java.classes.maintask.util.carcreator;
 
 import com.epam.melnik.java.classes.maintask.entity.car.CarBrand;
@@ -5,12 +11,23 @@ import com.epam.melnik.java.classes.maintask.entity.car.CarModel;
 
 import java.util.Random;
 
+/**
+ * Utility class designed to generate CarModel.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class CarModelCreator {
 
     private static final String[] bmwModels = {"X3", "X5", "X6"};
     private static final String[] toyotaModels = {"Camry", "Corolla", "Prius"};
     private static final String[] mazdaModels = {"CX-4", "CX-5", "CX-7"};
 
+    /**
+     * create CarModel
+     *
+     * @return CarModel
+     */
     public static CarModel modelCreate() {
 
         CarModel model = new CarModel();

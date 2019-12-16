@@ -1,7 +1,19 @@
+/*
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 25-Dec-2019
+ */
+
 package com.epam.melnik.java.classes.maintask.util.carcreator;
 
 import java.util.Random;
 
+/**
+ * Utility class designed to generate CarModel.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class RegistrationNumberCreator {
 
     private static Random random = new Random();
@@ -9,6 +21,11 @@ public class RegistrationNumberCreator {
     private static final int MAX_NUMBER_FOR_REGISTRATION_NUMBER = 10;
     private static final int AMOUNT_NUMBERS_FOR_REGISTRATION_NUMBER = 4;
 
+    /**
+     * create car's registration number
+     *
+     * @return String
+     */
     public static String createNumber() {
 
         StringBuilder builder = new StringBuilder();

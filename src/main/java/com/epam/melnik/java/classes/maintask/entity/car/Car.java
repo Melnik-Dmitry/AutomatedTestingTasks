@@ -1,10 +1,8 @@
 /*
-8. Car: id, Марка, Модель, Год выпуска, Цвет, Цена, Регистрационный номер.
-Создать массив объектов. Вывести:
-a) список автомобилей заданной марки;
-b) список автомобилей заданной модели, которые эксплуатируются больше n лет;
-c) список автомобилей заданного года выпуска, цена которых больше указанной.
-*/
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 25-Dec-2019
+ */
 
 package com.epam.melnik.java.classes.maintask.entity.car;
 
@@ -13,6 +11,16 @@ import com.epam.melnik.java.classes.maintask.util.carcreator.CarCreator;
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * Class describing entity Car, includes CarModel, car's manufacture year, CarColor,
+ * car's price, car's registration number.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ * @see LocalDate
+ * @see CarModel
+ * @see CarColor
+ */
 public class Car {
 
     private static final String MESSAGE_FOR_NULL_LINK = "Link can not be null";
@@ -35,6 +43,7 @@ public class Car {
                CarColor color,
                double price,
                String registrationNumber) {
+
         this.id = id;
         this.model = model;
         this.manufactureYear = manufactureYear;
@@ -44,30 +53,37 @@ public class Car {
     }
 
     public int getId() {
+
         return id;
     }
 
     public CarModel getModel() {
+
         return model;
     }
 
     public LocalDate getManufactureYear() {
+
         return manufactureYear;
     }
 
     public CarColor getColor() {
+
         return color;
     }
 
     public double getPrice() {
+
         return price;
     }
 
     public String getRegistrationNumber() {
+
         return registrationNumber;
     }
 
     public void setId(int id) throws IllegalArgumentException {
+
         if (id >= 0) {
             this.id = id;
         } else {
@@ -76,6 +92,7 @@ public class Car {
     }
 
     public void setModel(CarModel model) throws IllegalArgumentException {
+
         if (model != null) {
             this.model = model;
         } else {
@@ -84,6 +101,7 @@ public class Car {
     }
 
     public void setManufactureYear(LocalDate manufactureYear) throws IllegalArgumentException {
+
         if (manufactureYear != null) {
             this.manufactureYear = manufactureYear;
         } else {
@@ -92,6 +110,7 @@ public class Car {
     }
 
     public void setColor(CarColor color) throws IllegalArgumentException {
+
         if (color != null) {
             this.color = color;
         } else {
@@ -100,6 +119,7 @@ public class Car {
     }
 
     public void setPrice(double price) throws IllegalArgumentException {
+
         if (price >= CarCreator.minPrice) {
             this.price = price;
         } else {
@@ -108,6 +128,7 @@ public class Car {
     }
 
     public void setRegistrationNumber(String registrationNumber) throws IllegalArgumentException {
+
         if (registrationNumber != null && !registrationNumber.isEmpty()) {
             this.registrationNumber = registrationNumber;
         } else {
@@ -117,6 +138,7 @@ public class Car {
 
     @Override
     public boolean equals(Object o) {
+
         if (this == o) {
             return true;
         }
@@ -134,11 +156,13 @@ public class Car {
 
     @Override
     public int hashCode() {
+
         return Objects.hash(getId(), getModel(), getManufactureYear(), getColor(), getPrice(), getRegistrationNumber());
     }
 
     @Override
     public String toString() {
+
         return "Car: " + model + ", manufactureYear -" + manufactureYear + ", color - " + color +
                 ", price - " + price + ", registrationNumber - " + registrationNumber;
     }

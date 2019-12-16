@@ -1,3 +1,9 @@
+/*
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 25-Dec-2019
+ */
+
 package com.epam.melnik.java.classes.maintask.util.carcreator;
 
 import com.epam.melnik.java.classes.maintask.entity.car.Car;
@@ -5,6 +11,12 @@ import com.epam.melnik.java.classes.maintask.entity.car.CarColor;
 
 import java.util.Random;
 
+/**
+ * Utility class designed to generate an array of entities.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class CarCreator {
 
     public static final double minPrice = 10000;
@@ -13,6 +25,12 @@ public class CarCreator {
     private static final int DEFAULT_AMOUNT_CREATED_CARS = 10;
     private static final Random random = new Random();
 
+    /**
+     * create array of cars
+     *
+     * @param amountCars
+     * @return Car[]
+     */
     public static Car[] createCars(int amountCars) {
 
         Car[] cars = null;
@@ -47,8 +65,8 @@ public class CarCreator {
 
     private static double createPrice() {
 
-        double increment = maxPrice - minPrice;
-        double price = random.nextDouble() * increment + minPrice;
+        double incrementMaxMinPrice = maxPrice - minPrice;
+        double price = random.nextDouble() * incrementMaxMinPrice + minPrice;
 
         return price;
     }

@@ -1,3 +1,9 @@
+/*
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 25-Dec-2019
+ */
+
 package com.epam.melnik.java.classes.maintask.util.carsearcher;
 
 import com.epam.melnik.java.classes.maintask.entity.car.Car;
@@ -13,8 +19,19 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+/**
+ * Utility class designed to search cars according to the specified parameters.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class SearchCarWithParameters {
 
+    /**
+     * search cars by CarBrand
+     *
+     * @return List<Car>
+     */
     public static List<Car> searchCarByBrand(CarBrand brand, Car... cars) {
 
         List<Car> result = null;
@@ -30,8 +47,13 @@ public class SearchCarWithParameters {
         return result;
     }
 
+    /**
+     * search cars by model and amount service years
+     *
+     * @return List<Car>
+     */
     public static List<Car> searchCarByModelAndAmountServiceYears
-            (String model, int amountServiceYears, Car... cars) {
+    (String model, int amountServiceYears, Car... cars) {
 
         List<Car> result = null;
         if (model != null && amountServiceYears > 0 && cars.length > 0) {
@@ -50,11 +72,17 @@ public class SearchCarWithParameters {
         return result;
     }
 
+    /**
+     * search cars by manufactured year and price above specified
+     *
+     * @return List<Car>
+     */
     public static List<Car> searchCarByManufactureYearAndMorePrice
-            (int manufactureYear, double price, Car... cars) {
+    (int manufactureYear, double price, Car... cars) {
 
         List<Car> result = null;
-        if (manufactureYear > ManufactureYearCreator.startYear && price > CarCreator.minPrice && cars.length > 0) {
+        if (manufactureYear > ManufactureYearCreator.startYear && price
+                > CarCreator.minPrice && cars.length > 0) {
 
             Predicate<Car> predicateByManufactureYearAndMorePrice =
                     getPredicateByYearManufacture(manufactureYear)
