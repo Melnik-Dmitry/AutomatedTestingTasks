@@ -1,6 +1,6 @@
 package com.epam.melnik.java.collections.maintask.util.parameterinit;
 
-public enum ReadedParameters {
+public enum ReadParameters {
 
     AMOUNT_PEOPLE_AIRCRAFT_CREW("amountPeopleAircraftCrew"),
     CARRYING_CAPACITY("carryingCapacity"),
@@ -13,7 +13,7 @@ public enum ReadedParameters {
 
     private String parameterName;
 
-    ReadedParameters(String parameterName) {
+    ReadParameters(String parameterName) {
         this.parameterName = parameterName;
     }
 

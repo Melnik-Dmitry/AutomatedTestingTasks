@@ -19,16 +19,10 @@ public class AirCraftParameterValidatorImpl implements AirCraftParameterValidato
     public static final int MIN_PASSENGER_CAPACITY_FOR_PASSENGER_AIR_PLANE = 50;
     public static final int MAX_PASSENGER_CAPACITY_FOR_PASSENGER_AIR_PLANE = 300;
 
-    private AirCraftType airCraftType;
-
-    public AirCraftParameterValidatorImpl(AirCraftType airCraftType) {
-        this.airCraftType = airCraftType;
-    }
-
     @Override
     public boolean checkAmountPeopleAircraftCrew(int amountPeopleAircraftCrew) {
-        boolean result = false;
 
+        boolean result = false;
         if (amountPeopleAircraftCrew >= MIN_AMOUNT_PEOPLE_AIRCRAFT_CREW
                 && amountPeopleAircraftCrew <= MAX_AMOUNT_PEOPLE_AIRCRAFT_CREW) {
             result = true;
@@ -38,7 +32,8 @@ public class AirCraftParameterValidatorImpl implements AirCraftParameterValidato
     }
 
     @Override
-    public boolean checkCarryingCapacity(int carryingCapacity) {
+    public boolean checkCarryingCapacity(int carryingCapacity, AirCraftType airCraftType) {
+
         boolean result = false;
         if (airCraftType != null) {
             if ((airCraftType == AirCraftType.CARGO
@@ -55,7 +50,8 @@ public class AirCraftParameterValidatorImpl implements AirCraftParameterValidato
     }
 
     @Override
-    public boolean checkPassengerCapacity(int passengerCapacity) {
+    public boolean checkPassengerCapacity(int passengerCapacity, AirCraftType airCraftType) {
+
         boolean result = false;
         if (airCraftType != null) {
             if ((airCraftType == AirCraftType.CARGO
@@ -73,6 +69,7 @@ public class AirCraftParameterValidatorImpl implements AirCraftParameterValidato
 
     @Override
     public boolean checkFlightRange(int flightRange) {
+
         boolean result = false;
         if (flightRange >= MIN_FLIGHT_RANGE && flightRange <= MAX_FLIGHT_RANGE) {
             result = true;
@@ -82,6 +79,7 @@ public class AirCraftParameterValidatorImpl implements AirCraftParameterValidato
 
     @Override
     public boolean checkFuelConsumption(int fuelConsumption) {
+
         boolean result = false;
         if (fuelConsumption >= MIN_FUEL_CONSUMPTION && fuelConsumption <= MAX_FUEL_CONSUMPTION) {
             result = true;

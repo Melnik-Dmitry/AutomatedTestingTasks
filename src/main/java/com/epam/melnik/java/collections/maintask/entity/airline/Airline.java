@@ -1,40 +1,15 @@
 package com.epam.melnik.java.collections.maintask.entity.airline;
 
 import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraft;
-import com.epam.melnik.java.collections.maintask.util.entitycreate.CargoAirPlaneCreator;
-import com.epam.melnik.java.collections.maintask.util.entitycreate.PassengerAirPlaneCreator;
+import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraftType;
+import com.epam.melnik.java.collections.maintask.util.entitycreate.AirCraftCreator;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 public class Airline {
-
-    public static void main(String[] args) {
-        Airline airline = new Airline();
-        List<AirCraft> airCrafts = airline.getAirCrafts();
-//        System.out.println(airline.getOffice().getTotalAirParkCarryingCapacity(airCrafts));
-//        System.out.println(airline.getOffice().getTotalAirParkPassengerCapacity(airCrafts));
-
-        for (int i = 0; i < airCrafts.size(); i++) {
-            System.out.println(airCrafts.get(i).getFuelConsumption());
-        }
-
-        System.out.println("____________________________________________________________________");
-        List<AirCraft> rangeFuelConsume =
-                airline.getOffice()
-                        .getAirCraftFuelConsumptionRange(2_500, 1_000, airCrafts);
-
-        for (int i = 0; i < rangeFuelConsume.size(); i++) {
-            System.out.println(rangeFuelConsume.get(i).getFuelConsumption());
-        }
-        System.out.println();
-//        List<AirCraft> ad = new ArrayList<>(2);
-//        AirCraft first = new CargoAirPlane();
-//        AirCraft second = new PassengerAirPlane();
-//        ad.add(first);
-//        ad.add(second);
-    }
 
     private List<AirCraft> airCrafts;
     private AirlineOffice office;
@@ -43,20 +18,25 @@ public class Airline {
     public static final String FILE_PARAMETERS_PASSENGER_AIR_CRAFTS = "passengerAirPlaneInitParameters";
 
     public Airline() {
+
         office = new AirlineOffice();
     }
 
     public Airline(AirlineOffice office) {
+
         this.office = office;
     }
 
     public List<AirCraft> getAirCrafts() {
 
         if (airCrafts == null) {
-            AirCraft[] cargoAirCrafts =
-                    CargoAirPlaneCreator.createAirPlaneFromFile(FILE_PARAMETERS_CARGO_AIR_CRAFTS);
-            AirCraft[] passengerAirCrafts =
-                    PassengerAirPlaneCreator.createAirPlaneFromFile(FILE_PARAMETERS_PASSENGER_AIR_CRAFTS);
+
+            AirCraft[] cargoAirCrafts = AirCraftCreator
+                    .createAirPlanesFromFile
+                            (FILE_PARAMETERS_CARGO_AIR_CRAFTS, AirCraftType.CARGO);
+            AirCraft[] passengerAirCrafts = AirCraftCreator
+                    .createAirPlanesFromFile
+                            (FILE_PARAMETERS_PASSENGER_AIR_CRAFTS, AirCraftType.PASSENGER);
 
             airCrafts = new ArrayList<>(cargoAirCrafts.length + passengerAirCrafts.length);
             Collections.addAll(airCrafts, cargoAirCrafts);
@@ -67,14 +47,37 @@ public class Airline {
     }
 
     public AirlineOffice getOffice() {
+
         return office;
     }
 
     public void setAirCrafts(List<AirCraft> airCrafts) {
+
         this.airCrafts = airCrafts;
     }
 
     public void setOffice(AirlineOffice office) {
+
         this.office = office;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Airline)) {
+            return false;
+        }
+        Airline airline = (Airline) o;
+        return getAirCrafts().equals(airline.getAirCrafts()) &&
+                getOffice().equals(airline.getOffice());
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(getAirCrafts(), getOffice());
     }
 }

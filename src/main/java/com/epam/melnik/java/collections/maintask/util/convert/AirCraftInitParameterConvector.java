@@ -1,17 +1,17 @@
 package com.epam.melnik.java.collections.maintask.util.convert;
 
-import com.epam.melnik.java.collections.maintask.util.parameterinit.ReadedParameters;
+import com.epam.melnik.java.collections.maintask.util.parameterinit.ReadParameters;
 
 import java.util.regex.Pattern;
 
-import static com.epam.melnik.java.collections.maintask.util.parameterinit.ReadedParameters.*;
+import static com.epam.melnik.java.collections.maintask.util.parameterinit.ReadParameters.*;
 
-public class AirPlaneInitParameterConvector {
+public class AirCraftInitParameterConvector {
 
     public static final String INIT_PARAMETER_INTEGER_PATTERN = "[0-9]{1,5}";
     public static final String INIT_PARAMETER_BOOLEAN_PATTERN = "true";
 
-    public static Object convertParameter(String initParam, ReadedParameters parameterName) {
+    public static Object convertParameter(String initParam, ReadParameters parameterName) {
 
         Object convertedParam = null;
 

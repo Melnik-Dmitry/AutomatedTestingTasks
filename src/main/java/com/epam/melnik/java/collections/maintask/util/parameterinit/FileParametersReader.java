@@ -7,7 +7,8 @@ public class FileParametersReader {
 
     public static final String INIT_PARAMETERS_ARRAY_SPLITERATOR = ",";
 
-    public String[] getInitParams(String resourcePropertyFile, ReadedParameters parameterName) {
+    public String[] getInitParams(String resourcePropertyFile, ReadParameters parameterName) {
+
         String[] initParams = readInitParams(resourcePropertyFile, parameterName)
                 .split(INIT_PARAMETERS_ARRAY_SPLITERATOR);
         for (int i = 0; i < initParams.length; i++) {
@@ -16,12 +17,15 @@ public class FileParametersReader {
         return initParams;
     }
 
-    private String readInitParams(String resourcePropertyFile, ReadedParameters parameterName) {
+    private String readInitParams(String resourcePropertyFile, ReadParameters parameterName) {
 
         String initParams = "";
 
-        if (resourcePropertyFile != null && parameterName != null && !resourcePropertyFile.isEmpty()) {
-            try (InputStream input = this.getClass().getClassLoader().getResourceAsStream(resourcePropertyFile)) {
+        if (resourcePropertyFile != null &&
+                parameterName != null &&
+                !resourcePropertyFile.isEmpty()) {
+            try (InputStream input = this.getClass()
+                    .getClassLoader().getResourceAsStream(resourcePropertyFile)) {
                 if (input != null) {
 
                     Properties properties = new Properties();
