@@ -1,19 +1,36 @@
-package com.epam.melnik.java.collections.maintask.util.entitycreate;
+/*
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 25-Dec-2019
+ */
+
+package com.epam.melnik.java.collections.maintask.util.entitycreation;
 
 import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraft;
 import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraftType;
 import com.epam.melnik.java.collections.maintask.entity.aircraft.CargoAirCraft;
 import com.epam.melnik.java.collections.maintask.entity.aircraft.PassengerAirCraft;
-import com.epam.melnik.java.collections.maintask.util.convert.AirCraftInitParameterConvector;
-import com.epam.melnik.java.collections.maintask.util.parameterinit.FileParametersReader;
-import com.epam.melnik.java.collections.maintask.util.validate.*;
+import com.epam.melnik.java.collections.maintask.util.convertation.AirCraftInitParameterConverter;
+import com.epam.melnik.java.collections.maintask.util.initialization.FileParametersReader;
+import com.epam.melnik.java.collections.maintask.util.validation.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import static com.epam.melnik.java.collections.maintask.util.parameterinit.ReadParameters.*;
+import static com.epam.melnik.java.collections.maintask.util.initialization.ReadParameters.*;
 
+/**
+ * Util class performing creating
+ * Aircraft from file and single entity.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ * @see AirCraftParameterValidator
+ * @see CargoAirCraftParameterValidator
+ * @see PassengerAirCraftParameterValidator
+ * @see FileParametersReader
+ */
 public class AirCraftCreator {
 
     private static final AirCraftParameterValidator airCraftParameterValidator =
@@ -24,7 +41,25 @@ public class AirCraftCreator {
             new PassengerAirCraftParameterValidatorImpl();
     private static final FileParametersReader reader = new FileParametersReader();
 
-    public static AirCraft[] createAirPlanesFromFile(String fileParameters, AirCraftType airCraftType) {
+    /**
+     * метод создает массив Aircraft из файла.
+     * Тип создаваемого Aircraft зависит от параметра airCraftType.
+     * Количество создаваемых объектов равно минимальному количеству
+     * записей значения любого из параметров, записаннного в файле.
+     * Значения параметров, считываемых из файла должны относиться только
+     * к однуму из создаваемых типов ENUM AirCraftType.
+     * Создаваемый Aircraft инициализируется методами
+     * createCargoAirCraft(...)
+     * or createPassengerAirCraft(..).
+     */
+
+    /**
+     * @param fileParameters
+     * @param airCraftType
+     * @return AirCraft []
+     */
+    public static AirCraft[] createAirPlanesFromFile(String fileParameters,
+                                                     AirCraftType airCraftType) {
 
         String[] amountPeopleAircraftCrewParams =
                 reader.getInitParams(fileParameters, AMOUNT_PEOPLE_AIRCRAFT_CREW);
@@ -70,21 +105,21 @@ public class AirCraftCreator {
         AirCraft[] cargoAirCrafts = new AirCraft[minArrayLength];
 
         for (int i = 0; i < minArrayLength; i++) {
-            int amountPeopleAircraftCrew = (int) AirCraftInitParameterConvector
+            int amountPeopleAircraftCrew = (int) AirCraftInitParameterConverter
                     .convertParameter(amountPeopleAircraftCrewParams[i], AMOUNT_PEOPLE_AIRCRAFT_CREW);
-            int carryingCapacity = (int) AirCraftInitParameterConvector
+            int carryingCapacity = (int) AirCraftInitParameterConverter
                     .convertParameter(carryingCapacityParams[i], CARRYING_CAPACITY);
-            int passengerCapacity = (int) AirCraftInitParameterConvector
+            int passengerCapacity = (int) AirCraftInitParameterConverter
                     .convertParameter(passengerCapacityParams[i], PASSENGER_CAPACITY);
-            int flightRange = (int) AirCraftInitParameterConvector
+            int flightRange = (int) AirCraftInitParameterConverter
                     .convertParameter(flightRangeParams[i], FLIGHT_RANGE);
-            int fuelConsumption = (int) AirCraftInitParameterConvector
+            int fuelConsumption = (int) AirCraftInitParameterConverter
                     .convertParameter(fuelConsumptionParams[i], FUEL_CONSUMPTION);
 
             AirCraft craft = null;
 
             if (airCraftType == AirCraftType.CARGO) {
-                int amountCargoHatch = (int) AirCraftInitParameterConvector
+                int amountCargoHatch = (int) AirCraftInitParameterConverter
                         .convertParameter(amountCargoHatchParams[i], AMOUNT_CARGO_HATCH);
 
                 craft = createCargoAirCraft(
@@ -95,12 +130,11 @@ public class AirCraftCreator {
                         fuelConsumption,
                         amountCargoHatch);
                 craft.setAirCraftType(AirCraftType.CARGO);
-                cargoAirCrafts[i] = craft;
 
             } else if (airCraftType == AirCraftType.PASSENGER) {
-                int amountPorthole = (int) AirCraftInitParameterConvector
+                int amountPorthole = (int) AirCraftInitParameterConverter
                         .convertParameter(amountPortholeParams[i], AMOUNT_CARGO_HATCH);
-                boolean isThereBusinessCLass = (boolean) AirCraftInitParameterConvector
+                boolean isThereBusinessCLass = (boolean) AirCraftInitParameterConverter
                         .convertParameter(isThereBusinessCLassParams[i], IS_THERE_BUSINESS_CLASS);
 
                 craft = createPassengerAirCraft(
@@ -120,6 +154,21 @@ public class AirCraftCreator {
         return cargoAirCrafts;
     }
 
+    /**
+     * Метод создает AirCraft с типом ENUM AirCraftType.
+     * Выполняет валидацию параметров при помощи
+     * interfaces AirCraftParameterValidator, CargoAirCraftParameterValidator.
+     * В случае отрицательной валидации хотя бы одного параметра
+     * AirCraft создается с дефолтными значениями полей.
+     *
+     * @param amountPeopleAircraftCrew
+     * @param carryingCapacity
+     * @param passengerCapacity
+     * @param flightRange
+     * @param fuelConsumption
+     * @param amountCargoHatch
+     * @return AirCraft
+     */
     public static AirCraft createCargoAirCraft(int amountPeopleAircraftCrew,
                                                int carryingCapacity,
                                                int passengerCapacity,
@@ -150,6 +199,22 @@ public class AirCraftCreator {
         return cargoAirCraft;
     }
 
+    /**
+     * Метод создает AirCraft с типом ENUM AirCraftType.
+     * Выполняет валидацию параметров при помощи
+     * interfaces AirCraftParameterValidator, PassengerAirCraftParameterValidator.
+     * В случае отрицательной валидации хотя бы одного параметра
+     * AirCraft создается с дефолтными значениями полей.
+     *
+     * @param amountPeopleAircraftCrew
+     * @param carryingCapacity
+     * @param passengerCapacity
+     * @param flightRange
+     * @param fuelConsumption
+     * @param amountPorthole
+     * @param isThereBusinessCLass
+     * @return
+     */
     public static AirCraft createPassengerAirCraft(int amountPeopleAircraftCrew,
                                                    int carryingCapacity,
                                                    int passengerCapacity,

@@ -1,14 +1,28 @@
+/*
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 25-Dec-2019
+ */
+
 package com.epam.melnik.java.collections.maintask.entity.airline;
 
 import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraft;
 import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraftType;
-import com.epam.melnik.java.collections.maintask.util.entitycreate.AirCraftCreator;
+import com.epam.melnik.java.collections.maintask.util.entitycreation.AirCraftCreator;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Class describing entity Airline,
+ * includes List<AirCraft> airCrafts and
+ * AirlineOffice office.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class Airline {
 
     private List<AirCraft> airCrafts;
@@ -79,5 +93,18 @@ public class Airline {
     public int hashCode() {
 
         return Objects.hash(getAirCrafts(), getOffice());
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("Airline contains:" + "\r\n");
+        List<AirCraft> airCraftsForPrint = getAirCrafts();
+        for (int i = 0; i < airCraftsForPrint.size(); i++) {
+            builder.append(airCraftsForPrint.get(i) + "\r\n");
+        }
+
+        return builder.toString();
     }
 }

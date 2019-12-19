@@ -1,5 +1,17 @@
-package com.epam.melnik.java.collections.maintask.util.parameterinit;
+/*
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 25-Dec-2019
+ */
 
+package com.epam.melnik.java.collections.maintask.util.initialization;
+
+/**
+ * ENUM for parameter's names were readed from file
+ *
+ * @author Dmitry Melnik
+ * @see Enum
+ */
 public enum ReadParameters {
 
     AMOUNT_PEOPLE_AIRCRAFT_CREW("amountPeopleAircraftCrew"),

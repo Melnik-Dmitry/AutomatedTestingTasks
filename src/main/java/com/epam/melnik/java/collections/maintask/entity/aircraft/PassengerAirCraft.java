@@ -6,6 +6,14 @@
 
 package com.epam.melnik.java.collections.maintask.entity.aircraft;
 
+import java.util.Objects;
+
+/**
+ * Class describing entity PassengerAirCraft
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class PassengerAirCraft extends AirCraft {
 
     private int amountPorthole;
@@ -48,5 +56,38 @@ public class PassengerAirCraft extends AirCraft {
     public void setThereBusinessCLass(boolean thereBusinessCLass) {
 
         isThereBusinessCLass = thereBusinessCLass;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof PassengerAirCraft)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        PassengerAirCraft that = (PassengerAirCraft) o;
+        return getAmountPorthole() == that.getAmountPorthole() &&
+                isThereBusinessCLass() == that.isThereBusinessCLass();
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash
+                (super.hashCode(), getAmountPorthole(), isThereBusinessCLass());
+    }
+
+    @Override
+    public String toString() {
+
+        return "PassengerAirCraft{" +
+                "amountPorthole=" + amountPorthole +
+                ", isThereBusinessCLass=" + isThereBusinessCLass +
+                ", " + super.toString();
     }
 }

@@ -13,6 +13,8 @@ import java.util.Objects;
  *
  * @author Dmitry Melnik
  * @see Object
+ * @see CargoAirCraft
+ * @see PassengerAirCraft
  */
 abstract public class AirCraft {
 
@@ -130,8 +132,7 @@ abstract public class AirCraft {
     @Override
     public String toString() {
 
-        return "AirCraft{" +
-                "amountPeopleAircraftCrew=" + amountPeopleAircraftCrew +
+        return "amountPeopleAircraftCrew=" + amountPeopleAircraftCrew +
                 ", carryingCapacity=" + carryingCapacity +
                 ", passengerCapacity=" + passengerCapacity +
                 ", flightRange=" + flightRange +

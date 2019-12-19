@@ -1,15 +1,39 @@
-package com.epam.melnik.java.collections.maintask.util.parameterinit;
+/*
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 25-Dec-2019
+ */
+
+package com.epam.melnik.java.collections.maintask.util.initialization;
 
 import java.io.InputStream;
 import java.util.Properties;
 
+/**
+ * Util class performing reading parameters in String format
+ * for initialization Aircraft from file.
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class FileParametersReader {
 
     public static final String INIT_PARAMETERS_ARRAY_SPLITERATOR = ",";
 
-    public String[] getInitParams(String resourcePropertyFile, ReadParameters parameterName) {
+    /**
+     * Метод выполняет чтения заначений параметра,
+     * указанного в ReadParameters parameterName.
+     * Если файл параметров не существует по заданному пути
+     * метод возвращает String [] with single empty argument.
+     *
+     * @param resourcePropertyFile
+     * @param parameterName
+     * @return
+     */
+    public String[] getInitParams(String resourcePropertyFile,
+                                  ReadParameters parameterName) {
 
-        String[] initParams = readInitParams(resourcePropertyFile, parameterName)
+        String[] initParams = this.readInitParams(resourcePropertyFile, parameterName)
                 .split(INIT_PARAMETERS_ARRAY_SPLITERATOR);
         for (int i = 0; i < initParams.length; i++) {
             initParams[i] = initParams[i].trim();
@@ -17,7 +41,8 @@ public class FileParametersReader {
         return initParams;
     }
 
-    private String readInitParams(String resourcePropertyFile, ReadParameters parameterName) {
+    private String readInitParams(String resourcePropertyFile,
+                                  ReadParameters parameterName) {
 
         String initParams = "";
 

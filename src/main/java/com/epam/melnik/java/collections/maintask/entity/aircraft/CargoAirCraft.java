@@ -6,6 +6,14 @@
 
 package com.epam.melnik.java.collections.maintask.entity.aircraft;
 
+import java.util.Objects;
+
+/**
+ * Class describing entity CargoAirCraft
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class CargoAirCraft extends AirCraft {
 
     private int amountCargoHatch;
@@ -38,5 +46,35 @@ public class CargoAirCraft extends AirCraft {
     public void setAmountCargoHatch(int amountCargoHatch) {
 
         this.amountCargoHatch = amountCargoHatch;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof CargoAirCraft)) {
+            return false;
+        }
+        if (!super.equals(o)) {
+            return false;
+        }
+        CargoAirCraft that = (CargoAirCraft) o;
+        return getAmountCargoHatch() == that.getAmountCargoHatch();
+    }
+
+    @Override
+    public int hashCode() {
+
+        return Objects.hash(super.hashCode(), getAmountCargoHatch());
+    }
+
+    @Override
+    public String toString() {
+
+        return "CargoAirCraft{" +
+                "amountCargoHatch=" + amountCargoHatch
+                + ", " + super.toString();
     }
 }

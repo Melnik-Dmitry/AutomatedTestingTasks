@@ -1,5 +1,6 @@
 package com.epam.melnik.java;
 
+import com.epam.melnik.java.collections.maintask.entity.airline.Airline;
 import com.epam.melnik.java.fundamentals.maintask.task1.HelloUser;
 import com.epam.melnik.java.fundamentals.maintask.task2.CommandLineArgs;
 import com.epam.melnik.java.fundamentals.maintask.task3.RandomNumbers;
@@ -15,8 +16,9 @@ public class ApplicationRunner {
 
     public static void main(String[] args) {
 
-        javaFundamentalsMainTask(args);
-        javaFundamentalsOptionalTask1();
+//        javaFundamentalsMainTask(args);
+//        javaFundamentalsOptionalTask1();
+        javaCollectionsMainTask();
     }
 
     public static void javaFundamentalsMainTask(String[] args) {
@@ -39,5 +41,13 @@ public class ApplicationRunner {
         System.out.println(AmountNumerals.numberWithMinDifferentNumerals());
         System.out.println(NumbersWithEvenNumerals.getAmountNumsWithEvenNumerals());
         System.out.println(NumbersWithEvenNumerals.getAmountNumbersWithEqualNumberEvenAndOddDigits());
+    }
+
+    public static void javaCollectionsMainTask (){
+
+        Airline airline = new Airline();
+        System.out.println(airline);
+        System.out.println
+                (airline.getOffice().sortAirParkByFuelConsumption(airline.getAirCrafts()));
     }
 }
