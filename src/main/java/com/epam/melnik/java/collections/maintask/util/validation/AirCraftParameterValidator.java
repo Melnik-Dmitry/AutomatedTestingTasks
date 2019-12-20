@@ -6,7 +6,7 @@
 
 package com.epam.melnik.java.collections.maintask.util.validation;
 
-import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraftType;
+import com.epam.melnik.java.collections.maintask.model.entity.aircraft.AirCraftType;
 
 /**
  * Interface checks initialization parameters abstract class Aircraft

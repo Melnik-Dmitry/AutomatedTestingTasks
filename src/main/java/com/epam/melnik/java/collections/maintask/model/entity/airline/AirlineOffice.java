@@ -4,9 +4,9 @@
  * 25-Dec-2019
  */
 
-package com.epam.melnik.java.collections.maintask.entity.airline;
+package com.epam.melnik.java.collections.maintask.model.entity.airline;
 
-import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraft;
+import com.epam.melnik.java.collections.maintask.model.entity.aircraft.AirCraft;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -18,8 +18,8 @@ import java.util.stream.Collectors;
  * Class makes some functional(as search, sorting) with List<AirCraft>.
  *
  * @see AirCraft
- * @see com.epam.melnik.java.collections.maintask.entity.aircraft.PassengerAirCraft
- * @see com.epam.melnik.java.collections.maintask.entity.aircraft.CargoAirCraft
+ * @see com.epam.melnik.java.collections.maintask.model.entity.aircraft.PassengerAirCraft
+ * @see com.epam.melnik.java.collections.maintask.model.entity.aircraft.CargoAirCraft
  */
 public class AirlineOffice {
 
@@ -90,8 +90,7 @@ public class AirlineOffice {
     /**
      * Method searches AirCrafts, which fuel consumption
      * more than minFuelConsumption and less then maxFuelConsumption.
-     * Returns new List<AirCraft>, is airPark == null or empty
-     * returns empty ArrayList.
+     * Returns new List<AirCraft>, is airPark == null or empty returns empty ArrayList.
      *
      * @param airPark
      * @return List<AirCraft>

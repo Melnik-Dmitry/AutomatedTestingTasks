@@ -9,8 +9,8 @@ package com.epam.melnik.java.collections.maintask.util.validation;
 /**
  * Implementation interface AirCraftParameterValidator
  *
- * @see com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraft
- * @see com.epam.melnik.java.collections.maintask.entity.aircraft.PassengerAirCraft
+ * @see com.epam.melnik.java.collections.maintask.model.entity.aircraft.AirCraft
+ * @see com.epam.melnik.java.collections.maintask.model.entity.aircraft.PassengerAirCraft
  */
 public class PassengerAirCraftParameterValidatorImpl implements PassengerAirCraftParameterValidator {
 

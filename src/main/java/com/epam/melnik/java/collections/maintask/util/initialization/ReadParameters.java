@@ -7,7 +7,7 @@
 package com.epam.melnik.java.collections.maintask.util.initialization;
 
 /**
- * ENUM for parameter's names were readed from file
+ * ENUM for parameter's names were read from file
  *
  * @author Dmitry Melnik
  * @see Enum

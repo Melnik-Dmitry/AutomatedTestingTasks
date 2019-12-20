@@ -6,10 +6,10 @@
 
 package com.epam.melnik.java.collections.maintask.util.entitycreation;
 
-import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraft;
-import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraftType;
-import com.epam.melnik.java.collections.maintask.entity.aircraft.CargoAirCraft;
-import com.epam.melnik.java.collections.maintask.entity.aircraft.PassengerAirCraft;
+import com.epam.melnik.java.collections.maintask.model.entity.aircraft.AirCraft;
+import com.epam.melnik.java.collections.maintask.model.entity.aircraft.AirCraftType;
+import com.epam.melnik.java.collections.maintask.model.entity.aircraft.CargoAirCraft;
+import com.epam.melnik.java.collections.maintask.model.entity.aircraft.PassengerAirCraft;
 import com.epam.melnik.java.collections.maintask.util.convertation.AirCraftInitParameterConverter;
 import com.epam.melnik.java.collections.maintask.util.initialization.FileParametersReader;
 import com.epam.melnik.java.collections.maintask.util.validation.*;
@@ -26,6 +26,8 @@ import static com.epam.melnik.java.collections.maintask.util.initialization.Read
  *
  * @author Dmitry Melnik
  * @see Object
+ * @see CargoAirCraft
+ * @see PassengerAirCraft
  * @see AirCraftParameterValidator
  * @see CargoAirCraftParameterValidator
  * @see PassengerAirCraftParameterValidator
@@ -42,18 +44,14 @@ public class AirCraftCreator {
     private static final FileParametersReader reader = new FileParametersReader();
 
     /**
-     * метод создает массив Aircraft из файла.
-     * Тип создаваемого Aircraft зависит от параметра airCraftType.
-     * Количество создаваемых объектов равно минимальному количеству
-     * записей значения любого из параметров, записаннного в файле.
-     * Значения параметров, считываемых из файла должны относиться только
-     * к однуму из создаваемых типов ENUM AirCraftType.
-     * Создаваемый Aircraft инициализируется методами
-     * createCargoAirCraft(...)
-     * or createPassengerAirCraft(..).
-     */
-
-    /**
+     * Method creates an array of Aircraft from a file.
+     * The type of Aircraft you create depends on the airCraftType parameter.
+     * The number of objects created is equal to the minimum number
+     * records the value of any of the parameters recorded in the file.
+     * The parameter values read from the file should only refer to
+     * to one of the created types ENUM AirCraft Type.
+     * The Aircraft you create is initialized by methods
+     *
      * @param fileParameters
      * @param airCraftType
      * @return AirCraft []
@@ -155,11 +153,11 @@ public class AirCraftCreator {
     }
 
     /**
-     * Метод создает AirCraft с типом ENUM AirCraftType.
-     * Выполняет валидацию параметров при помощи
+     * Method creates an AirCraft with an ENUM AirCraftType.CARGO.
+     * Performs the validation of the parameters using
      * interfaces AirCraftParameterValidator, CargoAirCraftParameterValidator.
-     * В случае отрицательной валидации хотя бы одного параметра
-     * AirCraft создается с дефолтными значениями полей.
+     * In case of negative validation of at least one parameter,
+     * AirCraft is created with default field values.
      *
      * @param amountPeopleAircraftCrew
      * @param carryingCapacity
@@ -200,11 +198,11 @@ public class AirCraftCreator {
     }
 
     /**
-     * Метод создает AirCraft с типом ENUM AirCraftType.
-     * Выполняет валидацию параметров при помощи
+     * Method creates an AirCraft with an ENUM AirCraftType.PASSENGER.
+     * Performs the validation of the parameters using
      * interfaces AirCraftParameterValidator, PassengerAirCraftParameterValidator.
-     * В случае отрицательной валидации хотя бы одного параметра
-     * AirCraft создается с дефолтными значениями полей.
+     * In case of negative validation of at least one parameter,
+     * AirCraft is created with default field values.
      *
      * @param amountPeopleAircraftCrew
      * @param carryingCapacity
@@ -213,7 +211,7 @@ public class AirCraftCreator {
      * @param fuelConsumption
      * @param amountPorthole
      * @param isThereBusinessCLass
-     * @return
+     * @return AirCraft
      */
     public static AirCraft createPassengerAirCraft(int amountPeopleAircraftCrew,
                                                    int carryingCapacity,

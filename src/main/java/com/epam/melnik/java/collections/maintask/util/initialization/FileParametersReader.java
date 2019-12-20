@@ -11,7 +11,7 @@ import java.util.Properties;
 
 /**
  * Util class performing reading parameters in String format
- * for initialization Aircraft from file.
+ * for initialization Aircraft from file
  *
  * @author Dmitry Melnik
  * @see Object
@@ -21,10 +21,10 @@ public class FileParametersReader {
     public static final String INIT_PARAMETERS_ARRAY_SPLITERATOR = ",";
 
     /**
-     * Метод выполняет чтения заначений параметра,
-     * указанного в ReadParameters parameterName.
-     * Если файл параметров не существует по заданному пути
-     * метод возвращает String [] with single empty argument.
+     * Method reads the parameter values,
+     * specified in Read Parameters parameterName.
+     * If the parameter file does not exist at the specified path
+     * the method returns String [] with single empty argument
      *
      * @param resourcePropertyFile
      * @param parameterName

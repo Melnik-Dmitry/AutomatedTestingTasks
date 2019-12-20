@@ -6,12 +6,12 @@
 
 package com.epam.melnik.java.collections.maintask.util.validation;
 
-import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraftType;
+import com.epam.melnik.java.collections.maintask.model.entity.aircraft.AirCraftType;
 
 /**
  * Implementation interface AirCraftParameterValidator
  *
- * @see com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraft
+ * @see com.epam.melnik.java.collections.maintask.model.entity.aircraft.AirCraft
  * @see AirCraftType
  */
 public class AirCraftParameterValidatorImpl implements AirCraftParameterValidator {

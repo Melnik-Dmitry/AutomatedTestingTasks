@@ -4,7 +4,7 @@
  * 25-Dec-2019
  */
 
-package com.epam.melnik.java.collections.maintask.entity.aircraft;
+package com.epam.melnik.java.collections.maintask.model.entity.aircraft;
 
 /**
  * ENUM for AirCraftType

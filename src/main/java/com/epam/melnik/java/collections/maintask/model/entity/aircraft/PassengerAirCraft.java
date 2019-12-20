@@ -4,12 +4,12 @@
  * 25-Dec-2019
  */
 
-package com.epam.melnik.java.collections.maintask.entity.aircraft;
+package com.epam.melnik.java.collections.maintask.model.entity.aircraft;
 
 import java.util.Objects;
 
 /**
- * Class describing entity PassengerAirCraft
+ * Class describes entity PassengerAirCraft
  *
  * @author Dmitry Melnik
  * @see Object

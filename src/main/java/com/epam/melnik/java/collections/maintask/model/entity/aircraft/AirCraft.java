@@ -4,12 +4,12 @@
  * 25-Dec-2019
  */
 
-package com.epam.melnik.java.collections.maintask.entity.aircraft;
+package com.epam.melnik.java.collections.maintask.model.entity.aircraft;
 
 import java.util.Objects;
 
 /**
- * Abstract class describing abstract entity AirCraft
+ * Abstract class describes abstract entity AirCraft
  *
  * @author Dmitry Melnik
  * @see Object

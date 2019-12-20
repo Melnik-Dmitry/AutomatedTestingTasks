@@ -14,7 +14,7 @@ import static com.epam.melnik.java.collections.maintask.util.initialization.Read
 
 /**
  * Util class performing conversion from
- * String parameter to Object.
+ * String parameter to Object
  *
  * @author Dmitry Melnik
  * @see Object
@@ -25,8 +25,14 @@ public class AirCraftInitParameterConverter {
     public static final String INIT_PARAMETER_INTEGER_PATTERN = "[0-9]{1,5}";
     public static final String INIT_PARAMETER_BOOLEAN_PATTERN = "true";
 
-    //метод ввыполняет конвертацию параметра из строкового представления в Object,
-    //согласно ENUM ReadParameters.
+    /**
+     * Method converts a parameter from a string representation to an Object,
+     * according to ENUM ReadParameters
+     *
+     * @param initParam
+     * @param parameterName
+     * @return Object
+     */
     public static Object convertParameter(String initParam,
                                           ReadParameters parameterName) {
 

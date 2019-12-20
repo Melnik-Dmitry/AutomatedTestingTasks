@@ -4,10 +4,10 @@
  * 25-Dec-2019
  */
 
-package com.epam.melnik.java.collections.maintask.entity.airline;
+package com.epam.melnik.java.collections.maintask.model.entity.airline;
 
-import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraft;
-import com.epam.melnik.java.collections.maintask.entity.aircraft.AirCraftType;
+import com.epam.melnik.java.collections.maintask.model.entity.aircraft.AirCraft;
+import com.epam.melnik.java.collections.maintask.model.entity.aircraft.AirCraftType;
 import com.epam.melnik.java.collections.maintask.util.entitycreation.AirCraftCreator;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Class describing entity Airline,
+ * Class describes entity Airline,
  * includes List<AirCraft> airCrafts and
  * AirlineOffice office.
  *
@@ -36,8 +36,9 @@ public class Airline {
         office = new AirlineOffice();
     }
 
-    public Airline(AirlineOffice office) {
+    public Airline(List<AirCraft> airCrafts, AirlineOffice office) {
 
+        this.airCrafts = airCrafts;
         this.office = office;
     }
 
