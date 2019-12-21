@@ -1,6 +1,10 @@
 package com.epam.melnik.java;
 
 import com.epam.melnik.java.collections.maintask.model.entity.airline.Airline;
+import com.epam.melnik.java.collections.optionaltask.task1.Spliterator;
+import com.epam.melnik.java.collections.optionaltask.task1.TaskFileReader;
+import com.epam.melnik.java.collections.optionaltask.task1.TaskFileWriter;
+import com.epam.melnik.java.collections.optionaltask.task1.TextConvertor;
 import com.epam.melnik.java.fundamentals.maintask.task1.HelloUser;
 import com.epam.melnik.java.fundamentals.maintask.task2.CommandLineArgs;
 import com.epam.melnik.java.fundamentals.maintask.task3.RandomNumbers;
@@ -11,8 +15,12 @@ import com.epam.melnik.java.fundamentals.optionaltask1.task2.RangingNums;
 import com.epam.melnik.java.fundamentals.optionaltask1.task3.NumsAroundMiddleLength;
 import com.epam.melnik.java.fundamentals.optionaltask1.task4.AmountNumerals;
 import com.epam.melnik.java.fundamentals.optionaltask1.task5.NumbersWithEvenNumerals;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class ApplicationRunner {
+
+    public static final Logger APP_LOGGER = LogManager.getLogger(ApplicationRunner.class);
 
     public static final String TOTAL_CARRYING_CAPACITY_MESSAGE = "Total carrying capacity - ";
     public static final String TOTAL_PASSENGER_CAPACITY_MESSAGE = "Total passenger capacity - ";
@@ -24,14 +32,21 @@ public class ApplicationRunner {
             "Aircrafts with fuel consumption from " + MIN_FUEL_CONSUMPTION
                     + " to " + MAX_FUEL_CONSUMPTION + ":";
 
+    public static final String DATA_FILE_FOR_JAVA_COLLECTIONS_OPTIONAL_TASK1 =
+            "javaCollectionsOptionalTask1File.txt";
+    public static final String JAVA_COLLECTIONS_OPTIONAL_TASK1_FILE_FOR_WRITING =
+            "javaCollectionsOptionalTask1FileForWriting";
+
     public static void main(String[] args) {
 
 //        javaFundamentalsMainTask(args);
 //        javaFundamentalsOptionalTask1();
-        javaCollectionsMainTask();
+//        javaCollectionsMainTask();
+        javaCollectionsOptionalTask1();
     }
 
     public static void javaFundamentalsMainTask(String[] args) {
+
         HelloUser.saidUserHello();
         CommandLineArgs.printCommandLineArgs(args);
         RandomNumbers.printNumbers();
@@ -42,6 +57,7 @@ public class ApplicationRunner {
     }
 
     public static void javaFundamentalsOptionalTask1() {
+
         System.out.println(SearchNumByLength.searchNumWithMinLength());
         System.out.println(SearchNumByLength.searchNumWithMaxLength());
         RangingNums.printIncreasingNumbers();
@@ -83,5 +99,15 @@ public class ApplicationRunner {
                                 airline.getAirCrafts()));
         System.out.println(AIRCRAFTS_WITH_FUEL_CONSUMPTION_FROM_MIN_AND_MAX_MESSAGE
                 + airlineWithAircraftsWithFuelConsumptionFromMinAndMax);
+    }
+
+    public static void javaCollectionsOptionalTask1() {
+
+        String textFromFile = TaskFileReader
+                .readAllTextInFile(DATA_FILE_FOR_JAVA_COLLECTIONS_OPTIONAL_TASK1);
+        String[] linesToReverse = Spliterator.splitReadText(textFromFile);
+        String[] linesAfterReverse = TextConvertor.reverseText(linesToReverse);
+        TaskFileWriter.writeText
+                (JAVA_COLLECTIONS_OPTIONAL_TASK1_FILE_FOR_WRITING, linesAfterReverse);
     }
 }
