@@ -1,12 +1,31 @@
-package com.epam.melnik.java.collections.optionaltask.task1;
+/*
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 25-Dec-2019
+ */
+
+package com.epam.melnik.java.collections.optionaltask.util;
 
 import java.io.IOException;
 import java.io.InputStream;
 
 import static com.epam.melnik.java.ApplicationRunner.APP_LOGGER;
 
+/**
+ * Util class reads text from file
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class TaskFileReader {
 
+    /**
+     * Method reads all text from file.
+     * If @param filePath = null or empty method returns empty String
+     *
+     * @param filePath
+     * @return String
+     */
     public static String readAllTextInFile(String filePath) {
 
         StringBuilder builder = new StringBuilder();

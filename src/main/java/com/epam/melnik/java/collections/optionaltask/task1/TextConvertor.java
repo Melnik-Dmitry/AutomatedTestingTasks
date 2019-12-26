@@ -1,3 +1,9 @@
+/*
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 25-Dec-2019
+ */
+
 package com.epam.melnik.java.collections.optionaltask.task1;
 
 import java.util.ArrayDeque;
@@ -5,8 +11,21 @@ import java.util.ArrayList;
 import java.util.Deque;
 import java.util.List;
 
+/**
+ * Util class reverses String[]
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class TextConvertor {
 
+    /**
+     * Method rearranges the lines in reverse order.
+     * If @param String[] text = null or empty method returns array with zero length
+     *
+     * @param text
+     * @return String[]
+     */
     public static String[] reverseText(String[] text) {
 
         List<String> reverseText = new ArrayList<>();
