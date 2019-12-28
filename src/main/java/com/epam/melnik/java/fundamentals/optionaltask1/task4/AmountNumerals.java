@@ -1,7 +1,7 @@
 /*
- * Ввести n чисел с консоли.
- * Найти число, в котором количество различных цифр минимально.
- * Если таких чисел несколько, найти первое из них.
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.fundamentals.optionaltask1.task4;
@@ -12,8 +12,19 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Util class searches gets amount numerals in number
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class AmountNumerals {
 
+    /**
+     * Method gets number in which the number of different digits is minimal
+     *
+     * @return int
+     */
     public static int numberWithMinDifferentNumerals() {
 
         List<Integer> nums = NumbersCreator.getNumsAsInteger();
@@ -36,7 +47,7 @@ public class AmountNumerals {
 
     private static Set<Integer> getAmountDifferentNumeralsInNumber(int num) {
 
-        int nextNumber = num;
+        int nextNumber = Math.abs(num);
         int remainder = num % 10;
 
         Set<Integer> numerals = new HashSet();

@@ -1,11 +1,25 @@
 /*
- * Отобразить в окне консоли аргументы командной строки в обратном порядке.
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.fundamentals.maintask.task2;
 
+/**
+ * Util class prints Command Line Arguments
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
+
 public class CommandLineArgs {
 
+    /**
+     * Method reverses and prints Command Line Arguments
+     *
+     * @param args
+     */
     public static void printCommandLineArgs(String[] args) {
 
         String[] mirrorArray = reverseArray(args);

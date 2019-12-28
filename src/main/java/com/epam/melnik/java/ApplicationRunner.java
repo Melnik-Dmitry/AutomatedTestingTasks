@@ -5,12 +5,12 @@ import com.epam.melnik.java.classes.maintask.entity.car.CarBrand;
 import com.epam.melnik.java.classes.maintask.util.carcreator.CarCreator;
 import com.epam.melnik.java.classes.maintask.util.carsearcher.SearchCarWithParameters;
 import com.epam.melnik.java.collections.maintask.model.entity.airline.Airline;
+import com.epam.melnik.java.collections.optionaltask.task1.TextConvertor;
+import com.epam.melnik.java.collections.optionaltask.task2.NumberSpliterator;
 import com.epam.melnik.java.collections.optionaltask.task4.TextSorter;
 import com.epam.melnik.java.collections.optionaltask.util.Spliterator;
-import com.epam.melnik.java.collections.optionaltask.task2.NumberSpliterator;
 import com.epam.melnik.java.collections.optionaltask.util.TaskFileReader;
 import com.epam.melnik.java.collections.optionaltask.util.TaskFileWriter;
-import com.epam.melnik.java.collections.optionaltask.task1.TextConvertor;
 import com.epam.melnik.java.fundamentals.maintask.task1.HelloUser;
 import com.epam.melnik.java.fundamentals.maintask.task2.CommandLineArgs;
 import com.epam.melnik.java.fundamentals.maintask.task3.RandomNumbers;
@@ -21,9 +21,7 @@ import com.epam.melnik.java.fundamentals.optionaltask1.task2.RangingNums;
 import com.epam.melnik.java.fundamentals.optionaltask1.task3.NumsAroundMiddleLength;
 import com.epam.melnik.java.fundamentals.optionaltask1.task4.AmountNumerals;
 import com.epam.melnik.java.fundamentals.optionaltask1.task5.NumbersWithEvenNumerals;
-
 import com.epam.melnik.java.util.TaskScanner;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -31,6 +29,18 @@ import java.util.List;
 
 public class ApplicationRunner {
 
+    public static final String START_JAVA_FUNDAMENTALS_MAIN_TASK_MESSAGE =
+            "Start Java.Fudamentals MainTask";
+    public static final String START_JAVA_FUNDAMENTALS_OPTIONAL_TASK1_MESSAGE =
+            "Start Java.Fudamentals OptionalTask1";
+    public static final String NUMBER_WITH_MIN_LENGTH_MESSAGE = "Number with min length -";
+    public static final String NUMBER_WITH_MAX_LENGTH_MESSAGE = "Number with max length -";
+    public static final String NUMBER_WITH_MIN_DIFFERENT_NUMERALS_MESSAGE =
+            "Number in which the number of different digits is minimal -";
+    public static final String AMOUNT_NUMBERS_ONLY_FROM_EVEN_DIGITS =
+            "Amount numbers containing only even digits - ";
+    public static final String AMOUNT_NUMBERS_WITH_EQUALS_AMOUNT_EVEN_AND_ADD_DIGITS =
+            "amount numbers with an equal number of even and odd digits - ";
     public static final CarBrand PARAMETER_BRAND = CarBrand.BMW;
     public static final int PARAMETER_MANUFACTURED_YEAR = 2010;
     public static final double PARAMETER_PRICE_MORE = 15000;
@@ -68,17 +78,18 @@ public class ApplicationRunner {
 
     public static void main(String[] args) {
 
-//        javaFundamentalsMainTask(args);
-//        javaFundamentalsOptionalTask1();
-        javaClassesMainTask();
+        javaFundamentalsMainTask(args);
+        javaFundamentalsOptionalTask1();
+//        javaClassesMainTask();
 //        javaCollectionsMainTask();
 //        javaCollectionsOptionalTask1();
 //        javaCollectionsOptionalTask2();
-        javaCollectionsOptionalTask4();
+//        javaCollectionsOptionalTask4();
     }
 
     public static void javaFundamentalsMainTask(String[] args) {
 
+        System.out.println(START_JAVA_FUNDAMENTALS_MAIN_TASK_MESSAGE);
         HelloUser.saidUserHello();
         CommandLineArgs.printCommandLineArgs(args);
         RandomNumbers.printNumbers();
@@ -86,19 +97,27 @@ public class ApplicationRunner {
         System.out.println(CommandLineArgsAsNumber.argsSum(args));
         System.out.println(CommandLineArgsAsNumber.argsMultiplication(args));
         MonthEqualsNumber.getMonth();
+        System.out.println("-----------------------------------------------");
     }
 
     public static void javaFundamentalsOptionalTask1() {
 
-        System.out.println(SearchNumByLength.searchNumWithMinLength());
-        System.out.println(SearchNumByLength.searchNumWithMaxLength());
+        System.out.println(START_JAVA_FUNDAMENTALS_OPTIONAL_TASK1_MESSAGE);
+        System.out.println(NUMBER_WITH_MIN_LENGTH_MESSAGE
+                + SearchNumByLength.searchNumWithMinLength());
+        System.out.println(NUMBER_WITH_MAX_LENGTH_MESSAGE
+                + SearchNumByLength.searchNumWithMaxLength());
         RangingNums.printIncreasingNumbers();
         RangingNums.printDecreasingNumbers();
         NumsAroundMiddleLength.printNumsLessMiddleLength();
         NumsAroundMiddleLength.printNumsMoreMiddleLength();
-        System.out.println(AmountNumerals.numberWithMinDifferentNumerals());
-        System.out.println(NumbersWithEvenNumerals.getAmountNumsWithEvenNumerals());
-        System.out.println(NumbersWithEvenNumerals.getAmountNumbersWithEqualNumberEvenAndOddDigits());
+        System.out.println(NUMBER_WITH_MIN_DIFFERENT_NUMERALS_MESSAGE
+                + AmountNumerals.numberWithMinDifferentNumerals());
+        System.out.println(AMOUNT_NUMBERS_ONLY_FROM_EVEN_DIGITS
+                + NumbersWithEvenNumerals.getAmountNumsWithEvenNumerals());
+        System.out.println(AMOUNT_NUMBERS_WITH_EQUALS_AMOUNT_EVEN_AND_ADD_DIGITS
+                + NumbersWithEvenNumerals.getAmountNumbersWithEqualNumberEvenAndOddDigits());
+        System.out.println("-----------------------------------------------");
     }
 
     public static void javaClassesMainTask() {
@@ -130,7 +149,8 @@ public class ApplicationRunner {
         for (Car car : carsWithModelAndServiceYear) {
             System.out.println(car.getId() + " " + car);
         }
-		
+    }
+
     public static void javaCollectionsMainTask() {
 
         Airline airline = new Airline();

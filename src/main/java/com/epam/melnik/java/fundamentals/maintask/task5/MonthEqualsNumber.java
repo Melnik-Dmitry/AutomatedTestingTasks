@@ -1,6 +1,7 @@
 /*
- * Ввести число от 1 до 12. Вывести на консоль название месяца, соответствующего данному числу.
- * Осуществить проверку корректности ввода чисел.
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.fundamentals.maintask.task5;
@@ -8,6 +9,12 @@ package com.epam.melnik.java.fundamentals.maintask.task5;
 import com.epam.melnik.java.util.TaskScanner;
 import com.epam.melnik.java.util.Validator;
 
+/**
+ * Util class takes month from array
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class MonthEqualsNumber {
 
     public static final String[] MONTH = {
@@ -29,6 +36,9 @@ public class MonthEqualsNumber {
 
     public static final String WARNING_MESSAGE_FOR_NUMBER_OUTSIDE = "Number is not valid. Try again - ";
 
+    /**
+     * Method prints month according to the numbers entered by the user
+     */
     public static void getMonth() {
 
         int monthPosition = getInteger() - 1;

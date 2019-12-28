@@ -1,7 +1,7 @@
 /*
- * Ввести n чисел с консоли.
- * Вывести на консоль те числа, длина которых меньше (больше)
- * средней длины по всем числам, а также длину.
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.fundamentals.optionaltask1.task3;
@@ -14,37 +14,51 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Util class prints numbers around middle length all numbers in array
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class NumsAroundMiddleLength {
 
+    public static final String NUMBERS_LENGTH_LESS_MIDDLE_LENGTH_MESSAGE =
+            "Numbers, which length less that middle length all numbers in array -";
+    public static final String NUMBERS_LENGTH_MORE_MIDDLE_LENGTH_MESSAGE =
+            "Numbers, which length more that middle length all numbers in array -";
+
+    /**
+     * Method prints numbers, which length less that middle length all numbers in array
+     */
     public static void printNumsLessMiddleLength() {
 
         List<Double> numsLessMiddleLength = getNumsLessMiddleLength();
-//        System.out.println("newArraySize - " + numsLessMiddleLength.size());
+        System.out.println(NUMBERS_LENGTH_LESS_MIDDLE_LENGTH_MESSAGE);
         for (Double num : numsLessMiddleLength) {
             System.out.print(num + " ");
         }
+        System.out.println();
     }
 
+    /**
+     * Method prints numbers, which length more that middle length all numbers in array
+     */
     public static void printNumsMoreMiddleLength() {
 
         List<Double> numsMoreMiddleLength = getNumsMoreMiddleLength();
-//        System.out.println("newArraySize - " + numsMoreMiddleLength.size());
+        System.out.println(NUMBERS_LENGTH_MORE_MIDDLE_LENGTH_MESSAGE);
         for (Double num : numsMoreMiddleLength) {
             System.out.print(num + " ");
         }
+        System.out.println();
     }
 
     private static List<Double> getNumsLessMiddleLength() {
 
         List<Double> nums = NumbersCreator.getNumsAsDouble();
         double middleLength = NumberLengthSearcher.getNumsMiddleLength(nums);
-//        System.out.println("middleLength - " + middleLength);
+        System.out.println("middleLength - " + middleLength);
         Collections.sort(nums, new NumberLengthComparator());
-
-//        for (int i = 0; i < nums.size(); i++) {
-//            System.out.println(nums.get(i));
-//        }
-
 
         List<Double> numsLessMiddleLength = new ArrayList<>();
         for (int i = 0; i < nums.size(); i++) {
@@ -66,9 +80,6 @@ public class NumsAroundMiddleLength {
         System.out.println("middleLength - " + middleLength);
         Collections.sort(nums, new NumberLengthComparator());
         Collections.reverse(nums);
-//        for (int i = 0; i < nums.size(); i++) {
-//            System.out.print(nums.get(i) + " ");
-//        }
 
         List<Double> numsMoreMiddleLength = new ArrayList<>();
         for (int i = 0; i < nums.size(); i++) {

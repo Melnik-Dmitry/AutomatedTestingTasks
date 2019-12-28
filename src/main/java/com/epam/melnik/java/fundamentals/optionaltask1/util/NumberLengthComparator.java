@@ -1,7 +1,19 @@
+/*
+ * version: 1.1
+ * made by Dmitry Melnik
+ * 30-Dec-2019
+ */
+
 package com.epam.melnik.java.fundamentals.optionaltask1.util;
 
 import java.util.Comparator;
 
+/**
+ * Util class compares numbers
+ *
+ * @author Dmitry Melnik
+ * @see Object
+ */
 public class NumberLengthComparator implements Comparator {
 
     @Override
