@@ -1,7 +1,7 @@
 /*
  * version: 1.1
  * made by Dmitry Melnik
- * 25-Dec-2019
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.classes.maintask.util.carcreator;
@@ -26,7 +26,7 @@ public class CarCreator {
     private static final Random random = new Random();
 
     /**
-     * create array of cars
+     * Method creates array of cars
      *
      * @param amountCars
      * @return Car[]

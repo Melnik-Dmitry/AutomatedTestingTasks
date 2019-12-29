@@ -1,7 +1,7 @@
 /*
  * version: 1.1
  * made by Dmitry Melnik
- * 25-Dec-2019
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.classes.maintask.util.carcreator;
@@ -23,7 +23,7 @@ public class ManufactureYearCreator {
     public static final int finishYear = 2020;
 
     /**
-     * create car's manufacture year
+     * Method creates car's manufacture year
      *
      * @return LocalDate
      */

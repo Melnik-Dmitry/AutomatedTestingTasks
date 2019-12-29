@@ -1,7 +1,7 @@
 /*
  * version: 1.1
  * made by Dmitry Melnik
- * 25-Dec-2019
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.classes.maintask.util.carsearcher;
@@ -28,27 +28,27 @@ import java.util.stream.Collectors;
 public class SearchCarWithParameters {
 
     /**
-     * search cars by CarBrand
+     * Method searches cars by CarBrand
      *
      * @return List<Car>
      */
     public static List<Car> searchCarByBrand(CarBrand brand, Car... cars) {
 
-        List<Car> result = null;
+        List<Car> carsWithBrand = null;
         if (brand != null && cars.length > 0) {
 
-            result = Arrays.stream(cars)
+            carsWithBrand = Arrays.stream(cars)
                     .filter(getPredicateByBrand(brand))
                     .collect(Collectors.toList());
         } else {
-            result = new ArrayList<>();
+            carsWithBrand = new ArrayList<>();
         }
 
-        return result;
+        return carsWithBrand;
     }
 
     /**
-     * search cars by model and amount service years
+     * Method searches cars by model and amount service years
      *
      * @return List<Car>
      */
@@ -73,7 +73,7 @@ public class SearchCarWithParameters {
     }
 
     /**
-     * search cars by manufactured year and price above specified
+     * Method searches cars by manufactured year and price above specified
      *
      * @return List<Car>
      */

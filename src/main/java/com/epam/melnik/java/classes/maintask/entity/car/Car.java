@@ -1,7 +1,7 @@
 /*
  * version: 1.1
  * made by Dmitry Melnik
- * 25-Dec-2019
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.classes.maintask.entity.car;
@@ -100,7 +100,8 @@ public class Car {
         }
     }
 
-    public void setManufactureYear(LocalDate manufactureYear) throws IllegalArgumentException {
+    public void setManufactureYear(LocalDate manufactureYear)
+            throws IllegalArgumentException {
 
         if (manufactureYear != null) {
             this.manufactureYear = manufactureYear;
@@ -127,7 +128,8 @@ public class Car {
         }
     }
 
-    public void setRegistrationNumber(String registrationNumber) throws IllegalArgumentException {
+    public void setRegistrationNumber(String registrationNumber)
+            throws IllegalArgumentException {
 
         if (registrationNumber != null && !registrationNumber.isEmpty()) {
             this.registrationNumber = registrationNumber;
@@ -157,7 +159,12 @@ public class Car {
     @Override
     public int hashCode() {
 
-        return Objects.hash(getId(), getModel(), getManufactureYear(), getColor(), getPrice(), getRegistrationNumber());
+        return Objects.hash(getId(),
+                getModel(),
+                getManufactureYear(),
+                getColor(),
+                getPrice(),
+                getRegistrationNumber());
     }
 
     @Override

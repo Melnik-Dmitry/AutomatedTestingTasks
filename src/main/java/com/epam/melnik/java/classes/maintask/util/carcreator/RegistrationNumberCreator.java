@@ -1,7 +1,7 @@
 /*
  * version: 1.1
  * made by Dmitry Melnik
- * 25-Dec-2019
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.classes.maintask.util.carcreator;
@@ -22,7 +22,7 @@ public class RegistrationNumberCreator {
     private static final int AMOUNT_NUMBERS_FOR_REGISTRATION_NUMBER = 4;
 
     /**
-     * create car's registration number
+     * Method creates car's registration number
      *
      * @return String
      */
