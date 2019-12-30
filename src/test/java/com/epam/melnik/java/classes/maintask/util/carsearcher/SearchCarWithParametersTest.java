@@ -22,10 +22,10 @@ public class SearchCarWithParametersTest {
     private CarBrand brand;
     private int searchCarsByBrandResult;
     private String model;
-    int amountServiceYears;
+    private int amountServiceYears;
     private int searchCarsByModelAndYearsResult;
-    int manufactureYear;
-    double price;
+    private int manufactureYear;
+    private double price;
     private int searchCarsByYearAndPriceResult;
 
     public SearchCarWithParametersTest(CarBrand brand,

@@ -33,6 +33,10 @@ public class ApplicationRunner {
             "Start Java.Fudamentals MainTask";
     public static final String START_JAVA_FUNDAMENTALS_OPTIONAL_TASK1_MESSAGE =
             "Start Java.Fudamentals OptionalTask1";
+    public static final String START_JAVA_CLASSES_TASK_MESSAGE =
+            "Start Java.Classes Task";
+    public static final String START_JAVA_COLLECTIONS_MAIN_TASK_MESSAGE =
+            "Start Java.Collections MainTask";
     public static final String NUMBER_WITH_MIN_LENGTH_MESSAGE = "Number with min length -";
     public static final String NUMBER_WITH_MAX_LENGTH_MESSAGE = "Number with max length -";
     public static final String NUMBER_WITH_MIN_DIFFERENT_NUMERALS_MESSAGE =
@@ -56,8 +60,6 @@ public class ApplicationRunner {
             "Amount cars with model " + PARAMETER_MODEL
                     + " and amount service years more " + PARAMETER_AMOUNT_SERVICE_YEAR + " - ";
 
-    public static final Logger APP_LOGGER = LogManager.getLogger(ApplicationRunner.class);
-
     public static final String TOTAL_CARRYING_CAPACITY_MESSAGE = "Total carrying capacity - ";
     public static final String TOTAL_PASSENGER_CAPACITY_MESSAGE = "Total passenger capacity - ";
     public static final String AIRCRAFTS_SORTED_BY_FUEL_CONSUMPTION = "Aircrafts sorted by fuel consumption:";
@@ -76,12 +78,14 @@ public class ApplicationRunner {
     public static final String DATA_FILE_FOR_JAVA_COLLECTIONS_OPTIONAL_TASK4 =
             "javaCollectionsOptionalTask4File.txt";
 
+    public static final Logger APP_LOGGER = LogManager.getLogger(ApplicationRunner.class);
+
     public static void main(String[] args) {
 
-        javaFundamentalsMainTask(args);
-        javaFundamentalsOptionalTask1();
+//        javaFundamentalsMainTask(args);
+//        javaFundamentalsOptionalTask1();
 //        javaClassesMainTask();
-//        javaCollectionsMainTask();
+        javaCollectionsMainTask();
 //        javaCollectionsOptionalTask1();
 //        javaCollectionsOptionalTask2();
 //        javaCollectionsOptionalTask4();
@@ -122,6 +126,7 @@ public class ApplicationRunner {
 
     public static void javaClassesMainTask() {
 
+        System.out.println(START_JAVA_CLASSES_TASK_MESSAGE);
         System.out.print(AMOUNT_CREATED_CARS);
         int amountCars = TaskScanner.getInteger();
         Car[] cars = CarCreator.createCars(amountCars);
@@ -149,10 +154,12 @@ public class ApplicationRunner {
         for (Car car : carsWithModelAndServiceYear) {
             System.out.println(car.getId() + " " + car);
         }
+        System.out.println("-----------------------------------------------");
     }
 
     public static void javaCollectionsMainTask() {
 
+        System.out.println(START_JAVA_COLLECTIONS_MAIN_TASK_MESSAGE);
         Airline airline = new Airline();
         System.out.println(airline);
 
@@ -181,6 +188,7 @@ public class ApplicationRunner {
                                 airline.getAirCrafts()));
         System.out.println(AIRCRAFTS_WITH_FUEL_CONSUMPTION_FROM_MIN_AND_MAX_MESSAGE
                 + airlineWithAircraftsWithFuelConsumptionFromMinAndMax);
+        System.out.println("-----------------------------------------------");
     }
 
     public static void javaCollectionsOptionalTask1() {

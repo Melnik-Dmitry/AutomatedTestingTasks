@@ -1,7 +1,7 @@
 /*
  * version: 1.1
  * made by Dmitry Melnik
- * 25-Dec-2019
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.collections.maintask.model.entity.airline;
@@ -33,7 +33,11 @@ public class AirlineOffice {
 
         int totalCapacity = 0;
         if (airPark != null && !airPark.isEmpty()) {
-            totalCapacity += airPark.stream().mapToInt((AirCraft::getCarryingCapacity)).sum();
+            totalCapacity += airPark
+                    .stream()
+                    .filter(airCraft -> airCraft != null)
+                    .mapToInt((AirCraft::getCarryingCapacity))
+                    .sum();
         }
 
         return totalCapacity;
@@ -49,7 +53,11 @@ public class AirlineOffice {
 
         int totalCapacity = 0;
         if (airPark != null && !airPark.isEmpty()) {
-            totalCapacity += airPark.stream().mapToInt((AirCraft::getPassengerCapacity)).sum();
+            totalCapacity += airPark
+                    .stream()
+                    .filter(airCraft -> airCraft != null)
+                    .mapToInt((AirCraft::getPassengerCapacity))
+                    .sum();
         }
 
         return totalCapacity;
@@ -108,7 +116,9 @@ public class AirlineOffice {
                 Predicate<AirCraft> maxFuelConsumptionPredicate =
                         airCraft -> airCraft.getFuelConsumption() <= maxFuelConsumption;
 
-                airCraftsFuelConsumptionRange = airPark.stream()
+                airCraftsFuelConsumptionRange = airPark
+                        .stream()
+                        .filter(airCraft -> airCraft != null)
                         .filter(minFuelConsumptionPredicate.and(maxFuelConsumptionPredicate))
                         .collect(Collectors.toList());
 

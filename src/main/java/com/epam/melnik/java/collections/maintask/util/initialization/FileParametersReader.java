@@ -1,13 +1,15 @@
 /*
  * version: 1.1
  * made by Dmitry Melnik
- * 25-Dec-2019
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.collections.maintask.util.initialization;
 
 import java.io.InputStream;
 import java.util.Properties;
+
+import static com.epam.melnik.java.ApplicationRunner.APP_LOGGER;
 
 /**
  * Util class performing reading parameters in String format
@@ -52,15 +54,13 @@ public class FileParametersReader {
             try (InputStream input = this.getClass()
                     .getClassLoader().getResourceAsStream(resourcePropertyFile)) {
                 if (input != null) {
-
                     Properties properties = new Properties();
                     properties.load(input);
 
                     initParams = properties.getProperty(parameterName.getParameterName());
                 }
             } catch (Exception e) {
-                System.out.println(e.getCause().getMessage());
-//                TO DO logger
+                APP_LOGGER.catching(e);
             }
         }
         return initParams;

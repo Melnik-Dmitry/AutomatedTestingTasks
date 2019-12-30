@@ -1,7 +1,7 @@
 /*
  * version: 1.1
  * made by Dmitry Melnik
- * 25-Dec-2019
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.collections.maintask.util.validation;
@@ -18,13 +18,13 @@ public class AirCraftParameterValidatorImpl implements AirCraftParameterValidato
 
     public static final int MIN_AMOUNT_PEOPLE_AIRCRAFT_CREW = 4;
     public static final int MAX_AMOUNT_PEOPLE_AIRCRAFT_CREW = 6;
-    public static final int MIN_FLIGHT_RANGE = 1_000; // км
+    public static final int MIN_FLIGHT_RANGE = 1_000;
     public static final int MAX_FLIGHT_RANGE = 6_500;
-    public static final int MIN_FUEL_CONSUMPTION = 3_00; //л/100 км
+    public static final int MIN_FUEL_CONSUMPTION = 300;
     public static final int MAX_FUEL_CONSUMPTION = 2_500;
-    public static final int MIN_CARRYING_CAPACITY_FOR_CARGO_AIR_PLANE = 5_000; //кг
+    public static final int MIN_CARRYING_CAPACITY_FOR_CARGO_AIR_PLANE = 5_000;
     public static final int MAX_CARRYING_CAPACITY_FOR_CARGO_AIR_PLANE = 50_000;
-    public static final int MIN_CARRYING_CAPACITY_FOR_PASSENGER_AIR_PLANE = 1_000; //кг
+    public static final int MIN_CARRYING_CAPACITY_FOR_PASSENGER_AIR_PLANE = 1_000;
     public static final int MAX_CARRYING_CAPACITY_FOR_PASSENGER_AIR_PLANE = 20_000;
     public static final int MIN_PASSENGER_CAPACITY_FOR_CARGO_AIR_PLANE = 10;
     public static final int MAX_PASSENGER_CAPACITY_FOR_CARGO_AIR_PLANE = 25;
