@@ -55,21 +55,21 @@ public class SearchCarWithParameters {
     public static List<Car> searchCarByModelAndAmountServiceYears
     (String model, int amountServiceYears, Car... cars) {
 
-        List<Car> result = null;
+        List<Car> carWithModelAndAmounrServiceYears = null;
         if (model != null && amountServiceYears > 0 && cars.length > 0) {
 
             Predicate<Car> predicateByModelAndAmountServiceYears =
                     getPredicateByModel(model)
                             .and(getPredicateByAmountServiceYears(amountServiceYears));
 
-            result = Arrays.stream(cars)
+            carWithModelAndAmounrServiceYears = Arrays.stream(cars)
                     .filter(predicateByModelAndAmountServiceYears)
                     .collect(Collectors.toList());
         } else {
-            result = new ArrayList<>();
+            carWithModelAndAmounrServiceYears = new ArrayList<>();
         }
 
-        return result;
+        return carWithModelAndAmounrServiceYears;
     }
 
     /**
@@ -80,22 +80,24 @@ public class SearchCarWithParameters {
     public static List<Car> searchCarByManufactureYearAndMorePrice
     (int manufactureYear, double price, Car... cars) {
 
-        List<Car> result = null;
-        if (manufactureYear > ManufactureYearCreator.startYear && price
+        List<Car> carsByManufacturedYearAndMorePrice = null;
+        if (cars != null && cars.length > 0 &&
+                manufactureYear > ManufactureYearCreator.startYear && price
                 > CarCreator.minPrice && cars.length > 0) {
 
             Predicate<Car> predicateByManufactureYearAndMorePrice =
                     getPredicateByYearManufacture(manufactureYear)
                             .and(getPredicateByMorePrice(price));
 
-            result = Arrays.stream(cars)
+            carsByManufacturedYearAndMorePrice = Arrays.stream(cars)
+                    .filter(car -> car != null)
                     .filter(predicateByManufactureYearAndMorePrice)
                     .collect(Collectors.toList());
         } else {
-            result = new ArrayList<>();
+            carsByManufacturedYearAndMorePrice = new ArrayList<>();
         }
 
-        return result;
+        return carsByManufacturedYearAndMorePrice;
     }
 
     private static Predicate<Car> getPredicateByBrand(CarBrand brand) {

@@ -51,10 +51,10 @@ public class SearchCarWithParametersTest {
     public static Object[][] tetData() {
 
         return new Object[][]{
-                {CarBrand.BMW, 3, "X3", 15, 0, 2005, 15000, 0},
-                {CarBrand.MAZDA, 3, "Corolla", 5, 1, 2010, 25000, 1},
-                {null, 0, null, 5, 0, 1995, 1500, 0},
-                {CarBrand.TOYOTA, 3, "CX-4", -10, 0, 2005, 5000, 0}
+                {CarBrand.BMW, 3, "X3", 15, 0, 2005, 15_000, 2},
+                {CarBrand.MAZDA, 3, "Corolla", 5, 1, 2010, 25_000, 2},
+                {null, 0, null, 5, 0, 1995, 1_500, 0},
+                {CarBrand.TOYOTA, 3, "CX-4", -10, 0, 2005, 5_000, 0}
         };
     }
 
@@ -140,7 +140,7 @@ public class SearchCarWithParametersTest {
     public void searchCarByManufactureYearAndMorePrice() {
 
         List<Car> carList = SearchCarWithParameters.
-                searchCarByManufactureYearAndMorePrice(manufactureYear, price);
+                searchCarByManufactureYearAndMorePrice(manufactureYear, price, cars);
         assertNotNull(carList);
         assertEquals(searchCarsByYearAndPriceResult, carList.size());
     }

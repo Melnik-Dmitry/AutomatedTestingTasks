@@ -1,7 +1,7 @@
 /*
  * version: 1.1
  * made by Dmitry Melnik
- * 25-Dec-2019
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.collections.optionaltask.util;
@@ -25,13 +25,13 @@ public class Spliterator {
      */
     public static String[] splitReadText(String text, String spliterator) {
 
-        String[] splitedText = new String[0];
+        String[] splitText = new String[0];
 
         if (text != null && spliterator != null && !text.isEmpty()) {
-            splitedText = text.split(spliterator);
+            splitText = text.split(spliterator);
         }
 
-        return splitedText;
+        return splitText;
     }
 
     /**

@@ -1,11 +1,12 @@
 /*
  * version: 1.1
  * made by Dmitry Melnik
- * 25-Dec-2019
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.collections.optionaltask.task4;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -18,6 +19,12 @@ import java.util.List;
  */
 public class TextSorter {
 
+    public static void main(String[] args) {
+
+        List<String> rey = increaseSortByLengthLine(null);
+        System.out.println();
+    }
+
     /**
      * Method sorts String [] by length
      *
@@ -28,15 +35,17 @@ public class TextSorter {
 
         List<String> sortedByLengthLineArray;
 
-        if (strings.length > 1) {
-
-            sortedByLengthLineArray = Arrays.asList(strings);
-            Collections.sort(sortedByLengthLineArray,
-                    (firstLine, secondLine) -> firstLine.length() - secondLine.length());
+        if (strings != null) {
+            if (strings.length > 1) {
+                sortedByLengthLineArray = Arrays.asList(strings);
+                Collections.sort(sortedByLengthLineArray,
+                        (firstLine, secondLine) -> firstLine.length() - secondLine.length());
+            } else {
+                sortedByLengthLineArray = Arrays.asList(strings);
+            }
         } else {
-            sortedByLengthLineArray = Arrays.asList(strings);
+            sortedByLengthLineArray = new ArrayList<>(0);
         }
-
         return sortedByLengthLineArray;
     }
 }

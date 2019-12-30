@@ -1,12 +1,14 @@
 /*
  * version: 1.1
  * made by Dmitry Melnik
- * 25-Dec-2019
+ * 30-Dec-2019
  */
 
 package com.epam.melnik.java.collections.optionaltask.util;
 
 import java.io.*;
+
+import static com.epam.melnik.java.ApplicationRunner.APP_LOGGER;
 
 /**
  * Util class writes text to file
@@ -39,9 +41,9 @@ public class TaskFileWriter {
                     writer.flush();
                     writeResult = true;
                 } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                    APP_LOGGER.catching(e);
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    APP_LOGGER.catching(e);
                 }
             }
         }
