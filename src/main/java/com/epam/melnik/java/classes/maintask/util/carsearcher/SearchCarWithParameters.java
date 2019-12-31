@@ -35,13 +35,13 @@ public class SearchCarWithParameters {
     public static List<Car> searchCarByBrand(CarBrand brand, Car... cars) {
 
         List<Car> carsWithBrand = null;
-        if (brand != null && cars.length > 0) {
+        if (brand != null && cars != null && cars.length > 0) {
 
             carsWithBrand = Arrays.stream(cars)
                     .filter(getPredicateByBrand(brand))
                     .collect(Collectors.toList());
         } else {
-            carsWithBrand = new ArrayList<>();
+            carsWithBrand = new ArrayList<>(0);
         }
 
         return carsWithBrand;
@@ -56,7 +56,10 @@ public class SearchCarWithParameters {
     (String model, int amountServiceYears, Car... cars) {
 
         List<Car> carWithModelAndAmounrServiceYears = null;
-        if (model != null && amountServiceYears > 0 && cars.length > 0) {
+        if (model != null
+                && !model.isEmpty()
+                && amountServiceYears > 0
+                && cars != null && cars.length > 0) {
 
             Predicate<Car> predicateByModelAndAmountServiceYears =
                     getPredicateByModel(model)
@@ -81,9 +84,9 @@ public class SearchCarWithParameters {
     (int manufactureYear, double price, Car... cars) {
 
         List<Car> carsByManufacturedYearAndMorePrice = null;
-        if (cars != null && cars.length > 0 &&
-                manufactureYear > ManufactureYearCreator.startYear && price
-                > CarCreator.minPrice && cars.length > 0) {
+        if (manufactureYear > ManufactureYearCreator.startYear
+                && price > CarCreator.minPrice
+                && cars != null && cars.length > 0) {
 
             Predicate<Car> predicateByManufactureYearAndMorePrice =
                     getPredicateByYearManufacture(manufactureYear)

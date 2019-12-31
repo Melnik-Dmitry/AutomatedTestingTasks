@@ -4,7 +4,6 @@ import com.epam.melnik.java.classes.maintask.entity.car.Car;
 import com.epam.melnik.java.classes.maintask.entity.car.CarBrand;
 import com.epam.melnik.java.classes.maintask.entity.car.CarColor;
 import com.epam.melnik.java.classes.maintask.entity.car.CarModel;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -28,40 +27,10 @@ public class SearchCarWithParametersTest {
     private double price;
     private int searchCarsByYearAndPriceResult;
 
-    public SearchCarWithParametersTest(CarBrand brand,
-                                       int searchCarsByBrandResult,
-                                       String model,
-                                       int amountServiceYears,
-                                       int searchCarsByModelAndYearsResult,
-                                       int manufactureYear,
-                                       double price,
-                                       int searchCarsByYearAndPriceResult) {
-
-        this.brand = brand;
-        this.searchCarsByBrandResult = searchCarsByBrandResult;
-        this.model = model;
-        this.amountServiceYears = amountServiceYears;
-        this.searchCarsByModelAndYearsResult = searchCarsByModelAndYearsResult;
-        this.manufactureYear = manufactureYear;
-        this.price = price;
-        this.searchCarsByYearAndPriceResult = searchCarsByYearAndPriceResult;
-    }
-
     @Parameterized.Parameters
     public static Object[][] tetData() {
 
-        return new Object[][]{
-                {CarBrand.BMW, 3, "X3", 15, 0, 2005, 15_000, 2},
-                {CarBrand.MAZDA, 3, "Corolla", 5, 1, 2010, 25_000, 2},
-                {null, 0, null, 5, 0, 1995, 1_500, 0},
-                {CarBrand.TOYOTA, 3, "CX-4", -10, 0, 2005, 5_000, 0}
-        };
-    }
-
-    @Before
-    public void setUp() throws Exception {
-
-        cars = new Car[]{
+        Car[] carsPark = new Car[]{
                 new Car(0,
                         new CarModel(CarBrand.BMW, "X3"),
                         LocalDate.ofYearDay(2005, 266),
@@ -116,6 +85,37 @@ public class SearchCarWithParametersTest {
                         CarColor.WHITE,
                         27900,
                         "5616 - AA")};
+
+
+        return new Object[][]{
+                {carsPark, CarBrand.BMW, 3, "X3", 13, 1, 2005, 15_000, 2},
+                {null, CarBrand.BMW, 0, "X3", 5, 0, 2005, 15_000, 0},
+                {new Car[0], CarBrand.TOYOTA, 0, "X3", 5, 0, 2005, 15_000, 0},
+                {carsPark, null, 0, null, 5, 0, 1995, 15_000, 0},
+                {carsPark, CarBrand.TOYOTA, 3, "X3", -5, 0, 2005, 5_000, 0},
+                {carsPark, CarBrand.MAZDA, 3, "", 5, 0, 2013, 35_000, 1},
+        };
+    }
+
+    public SearchCarWithParametersTest(Car[] cars,
+                                       CarBrand brand,
+                                       int searchCarsByBrandResult,
+                                       String model,
+                                       int amountServiceYears,
+                                       int searchCarsByModelAndYearsResult,
+                                       int manufactureYear,
+                                       double price,
+                                       int searchCarsByYearAndPriceResult) {
+
+        this.cars = cars;
+        this.brand = brand;
+        this.searchCarsByBrandResult = searchCarsByBrandResult;
+        this.model = model;
+        this.amountServiceYears = amountServiceYears;
+        this.searchCarsByModelAndYearsResult = searchCarsByModelAndYearsResult;
+        this.manufactureYear = manufactureYear;
+        this.price = price;
+        this.searchCarsByYearAndPriceResult = searchCarsByYearAndPriceResult;
     }
 
     @Test

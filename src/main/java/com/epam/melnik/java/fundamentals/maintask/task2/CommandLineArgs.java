@@ -15,6 +15,8 @@ package com.epam.melnik.java.fundamentals.maintask.task2;
 
 public class CommandLineArgs {
 
+    public static final String EMPTY_COMMAND_LINE_ARGS = "Command line args array is empty";
+
     /**
      * Method reverses and prints Command Line Arguments
      *
@@ -22,10 +24,14 @@ public class CommandLineArgs {
      */
     public static void printCommandLineArgs(String[] args) {
 
-        String[] mirrorArray = reverseArray(args);
+        if (args != null & args.length > 0) {
+            String[] mirrorArray = reverseArray(args);
 
-        for (String currentArgument : mirrorArray) {
-            System.out.print(currentArgument + " ");
+            for (String currentArgument : mirrorArray) {
+                System.out.print(currentArgument + " ");
+            }
+        } else {
+            System.out.println(EMPTY_COMMAND_LINE_ARGS);
         }
         System.out.print("\n");
     }

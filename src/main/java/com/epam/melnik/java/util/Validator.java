@@ -47,6 +47,10 @@ public class Validator {
      */
     public static boolean isArgumentNumber(String argument) {
 
-        return Pattern.matches(NUMBER_PATTERN, argument);
+        boolean isArgumentNumberResult = false;
+        if (argument != null && !argument.isEmpty()) {
+            isArgumentNumberResult = Pattern.matches(NUMBER_PATTERN, argument);
+        }
+        return isArgumentNumberResult;
     }
 }

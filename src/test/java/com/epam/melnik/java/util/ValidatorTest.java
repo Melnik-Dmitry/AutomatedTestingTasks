@@ -30,6 +30,8 @@ public class ValidatorTest {
 
         return new Object[][]{
                 {0, false, "test", false},
+                {0, false, null, false},
+                {0, false, "", false},
                 {-1, false, "-25", true},
                 {13, false, "25", true},
                 {150, false, "-009", true},

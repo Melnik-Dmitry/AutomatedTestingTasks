@@ -27,6 +27,7 @@ public class CommandLineArgsAsNumberTest {
 
         return new Object[][]{
                 {new String[]{"one", "two"}, 0, 0},
+                {new String[0], 0, 0},
                 {null, 0, 0},
                 {new String[]{"1", "-1"}, 0, -1},
                 {new String[]{"one", "-1"}, -1, -1},
@@ -38,14 +39,14 @@ public class CommandLineArgsAsNumberTest {
     @Test
     public void argsSum() {
 
-        assertEquals (argsSumResult,
+        assertEquals(argsSumResult,
                 CommandLineArgsAsNumber.argsSum(args), 0.01);
     }
 
     @Test
     public void argsMultiplication() {
 
-        assertEquals (argsMultiplicationResult,
+        assertEquals(argsMultiplicationResult,
                 CommandLineArgsAsNumber.argsMultiplication(args), 0.01);
     }
 }

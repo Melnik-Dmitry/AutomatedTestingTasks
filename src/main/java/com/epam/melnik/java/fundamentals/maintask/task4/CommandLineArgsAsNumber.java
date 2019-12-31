@@ -29,7 +29,7 @@ public class CommandLineArgsAsNumber {
     public static double argsSum(String[] args) {
 
         double argsSum = 0;
-        if (args != null) {
+        if (args != null && args.length > 0) {
             argsSum = getNumbers(args)
                     .stream()
                     .mapToDouble(number -> Double.valueOf(number))
