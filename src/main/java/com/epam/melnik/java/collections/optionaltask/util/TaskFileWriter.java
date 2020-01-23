@@ -30,7 +30,7 @@ public class TaskFileWriter {
                                     String... text) {
 
         boolean writeResult = false;
-        if (filePath != null) {
+        if (filePath != null && !filePath.isEmpty()) {
             if (text != null && text.length > 0) {
 
                 try (FileWriter writer =
