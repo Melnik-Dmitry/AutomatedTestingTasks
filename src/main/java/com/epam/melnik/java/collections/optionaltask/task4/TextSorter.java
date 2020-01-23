@@ -19,12 +19,6 @@ import java.util.List;
  */
 public class TextSorter {
 
-    public static void main(String[] args) {
-
-        List<String> rey = increaseSortByLengthLine(null);
-        System.out.println();
-    }
-
     /**
      * Method sorts String [] by length
      *
