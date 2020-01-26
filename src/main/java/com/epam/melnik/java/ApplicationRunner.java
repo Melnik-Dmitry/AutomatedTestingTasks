@@ -21,10 +21,13 @@ import com.epam.melnik.java.fundamentals.optionaltask1.task2.RangingNums;
 import com.epam.melnik.java.fundamentals.optionaltask1.task3.NumsAroundMiddleLength;
 import com.epam.melnik.java.fundamentals.optionaltask1.task4.AmountNumerals;
 import com.epam.melnik.java.fundamentals.optionaltask1.task5.NumbersWithEvenNumerals;
+import com.epam.melnik.java.thread.CarPark;
+import com.epam.melnik.java.thread.ParkingPlace;
 import com.epam.melnik.java.util.TaskScanner;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ApplicationRunner {
@@ -78,17 +81,21 @@ public class ApplicationRunner {
     public static final String DATA_FILE_FOR_JAVA_COLLECTIONS_OPTIONAL_TASK4 =
             "javaCollectionsOptionalTask4File.txt";
 
+    public static final int AMOUNT_CREATED_PARKING_PLACE = 2;
+    public static final int AMOUNT_CREATED_THREAD_CARS = 5;
+
     public static final Logger APP_LOGGER = LogManager.getLogger(ApplicationRunner.class);
 
     public static void main(String[] args) {
 
-//        javaFundamentalsMainTask(args);
-//        javaFundamentalsOptionalTask1();
-//        javaClassesMainTask();
+        javaFundamentalsMainTask(args);
+        javaFundamentalsOptionalTask1();
+        javaClassesMainTask();
         javaCollectionsMainTask();
-//        javaCollectionsOptionalTask1();
-//        javaCollectionsOptionalTask2();
-//        javaCollectionsOptionalTask4();
+        javaCollectionsOptionalTask1();
+        javaCollectionsOptionalTask2();
+        javaCollectionsOptionalTask4();
+        javaThreadMainTask();
     }
 
     public static void javaFundamentalsMainTask(String[] args) {
@@ -221,5 +228,19 @@ public class ApplicationRunner {
 
         List list = TextSorter.increaseSortByLengthLine(splitText);
         System.out.println(list);
+    }
+
+    public static void javaThreadMainTask() {
+
+        List<ParkingPlace> places = new ArrayList<>(AMOUNT_CREATED_PARKING_PLACE);
+        for (int i = 0; i < AMOUNT_CREATED_PARKING_PLACE; i++) {
+            places.add(new ParkingPlace());
+        }
+        CarPark park = new CarPark(places);
+
+        for (int i = 0; i < AMOUNT_CREATED_THREAD_CARS; i++) {
+            Thread thread = new Thread(new com.epam.melnik.java.thread.Car(park));
+            thread.start();
+        }
     }
 }
